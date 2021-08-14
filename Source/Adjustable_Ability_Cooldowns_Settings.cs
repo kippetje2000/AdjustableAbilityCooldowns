@@ -9,6 +9,7 @@ namespace Adjustable_Ability_Cooldowns
 {
     public class Adjustable_Ability_Cooldowns_Settings : ModSettings
     {
+        //test
         public float ritualPenalty = 95;
         public float ritualCooldown = 20;
 
