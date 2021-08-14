@@ -29,8 +29,3 @@ A: Nope.
 
 Q: Does this work with Combat Extended?
 A: Don't know and I'm not going to test it. But let me know.
-
-Special thanks to:
-Bratwurstinator - Made things a lot clearer for me and helped me out a lot.
-Georodin - Explaining how harmony patching works
-Saphos - Helping me make patches for the ritual cooldown.
