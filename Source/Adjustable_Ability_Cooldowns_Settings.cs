@@ -9,10 +9,12 @@ namespace Adjustable_Ability_Cooldowns
 {
     public class Adjustable_Ability_Cooldowns_Settings : ModSettings
     {
+        //Rituals
         public float ritualPenalty = 95;
         public float ritualCooldown = 20;
 
         //Leader
+        public float abilityLeaderSpeech = 10;
         public float abilityTrial = 10;
         public float abilityWorkDrive = 10;
         public float abilityCombatCommand = 10;
@@ -47,6 +49,8 @@ namespace Adjustable_Ability_Cooldowns
         //Shooting Specialist
         public float abilityMarksmanCommand = 3;
 
+        public bool separatedAblilities = false;
+
         public override void ExposeData()
         {
             //Ritual penalty
@@ -54,6 +58,7 @@ namespace Adjustable_Ability_Cooldowns
             Scribe_Values.Look(ref ritualCooldown, "ritualCooldown", 20);
 
             //Leader abilities
+            Scribe_Values.Look(ref abilityLeaderSpeech, "abilityLeaderSpeech", 10);
             Scribe_Values.Look(ref abilityTrial, "abilityTrial", 10);
             Scribe_Values.Look(ref abilityWorkDrive, "abilityWorkDrive", 10);
             Scribe_Values.Look(ref abilityCombatCommand, "abilityCombatCommand", 10);
@@ -74,6 +79,8 @@ namespace Adjustable_Ability_Cooldowns
             Scribe_Values.Look(ref abilityResearchCommand, "abilityResearchCommand", 3);
             Scribe_Values.Look(ref abilityMarksmanCommand, "abilityMarksmanCommand", 3);
 
+            Scribe_Values.Look(ref separatedAblilities, "separatedAblilities", false);
+
 
             base.ExposeData();
         }
@@ -84,7 +91,7 @@ namespace Adjustable_Ability_Cooldowns
     {
         public static Adjustable_Ability_Cooldowns_Settings settings;
         private Vector2 scrollPosition;
-        private static float totalContentHeight = 780f;
+        private static float totalContentHeight = 900f;
         private const float scrollBarWidthMargin = 18f;
 
         public Adjustable_Ability_Cooldowns(ModContentPack content) : base(content)
@@ -106,11 +113,12 @@ namespace Adjustable_Ability_Cooldowns
             //ritual penalty
             listingStandard.Label("\nRitual");
             listingStandard.AddLabeledSlider("Percentage for the Ritual Penalty (" + settings.ritualPenalty + ") %", ref settings.ritualPenalty, 0, 100, "0", "100", 1f);
-            listingStandard.AddLabeledSlider("Cooldown for the Rituals (" + settings.ritualCooldown + ") %", ref settings.ritualCooldown, 0, 20, "0", "20", 1f);
+            listingStandard.AddLabeledSlider("Cooldown for the Rituals (" + settings.ritualCooldown + ") Days", ref settings.ritualCooldown, 0, 20, "0", "20", 1f);
             //Abilities
             listingStandard.AddHorizontalLine();
             //Leader abilities
             listingStandard.Label("\nLeader abilities");
+            listingStandard.AddLabeledSlider("Cooldown for the ability: LeaderSpeech (" + settings.abilityLeaderSpeech + ") Days", ref settings.abilityLeaderSpeech, 0, 20, "0", "20", 1);
             listingStandard.AddLabeledSlider("Cooldown for the ability: Trial (" + settings.abilityTrial + ") Days", ref settings.abilityTrial, 0, 20, "0", "20", 1);
             listingStandard.AddLabeledSlider("Cooldown for the ability: WorkDrive (" + settings.abilityWorkDrive + ") Days", ref settings.abilityWorkDrive, 0, 20, "0", "20", 1);
             listingStandard.AddLabeledSlider("Cooldown for the ability: CombatCommand (" + settings.abilityCombatCommand + ") Days", ref settings.abilityCombatCommand, 0, 20, "0", "20", 1);
@@ -132,6 +140,10 @@ namespace Adjustable_Ability_Cooldowns
             listingStandard.AddLabeledSlider("Cooldown for the ability: ProductionCommand (" + settings.abilityProductionCommand + ") Days", ref settings.abilityProductionCommand, 0, 20, "0", "20", 1);
             listingStandard.AddLabeledSlider("Cooldown for the ability: ResearchCommand (" + settings.abilityResearchCommand + ") Days", ref settings.abilityResearchCommand, 0, 20, "0", "20", 1);
             listingStandard.AddLabeledSlider("Cooldown for the ability: MarksmanCommand (" + settings.abilityMarksmanCommand + ") Days", ref settings.abilityMarksmanCommand, 0, 20, "0", "20", 1);
+            listingStandard.AddHorizontalLine();
+            //More options
+            listingStandard.Label("\nMore options");
+            listingStandard.AddLabeledCheckbox("Use ablilities separately from each other", ref settings.separatedAblilities);
             listingStandard.AddHorizontalLine();
 
             listingStandard.End();
@@ -159,12 +171,15 @@ namespace Adjustable_Ability_Cooldowns
         private static void ApplySettings()
         {
             //Leader abilities
+            int tickLeaderSpeech = Convert.ToInt32(settings.abilityLeaderSpeech * 60000);
+            DefDatabase<AbilityDef>.GetNamed("LeaderSpeech").cooldownTicksRange = new IntRange(tickLeaderSpeech, tickLeaderSpeech);
             int tickTrial = Convert.ToInt32(settings.abilityTrial * 60000);
             DefDatabase<AbilityDef>.GetNamed("Trial").cooldownTicksRange = new IntRange(tickTrial, tickTrial);
             int tickWorkDrive = Convert.ToInt32(settings.abilityWorkDrive * 60000);
             DefDatabase<AbilityDef>.GetNamed("WorkDrive").cooldownTicksRange = new IntRange(tickWorkDrive, tickWorkDrive);
             int tickCombatCommand = Convert.ToInt32(settings.abilityCombatCommand * 60000);
             DefDatabase<AbilityDef>.GetNamed("CombatCommand").cooldownTicksRange = new IntRange(tickCombatCommand, tickCombatCommand);
+
             //Moral Guide abilities
             int tickConvert = Convert.ToInt32(settings.abilityConvert * 60000);
             DefDatabase<AbilityDef>.GetNamed("Convert").cooldownTicksRange = new IntRange(tickConvert, tickConvert);
@@ -174,6 +189,7 @@ namespace Adjustable_Ability_Cooldowns
             DefDatabase<AbilityDef>.GetNamed("Reassure").cooldownTicksRange = new IntRange(tickReassure, tickReassure);
             int tickCounsel = Convert.ToInt32(settings.abilityCounsel * 60000);
             DefDatabase<AbilityDef>.GetNamed("Counsel").cooldownTicksRange = new IntRange(tickCounsel, tickCounsel);
+
             //Specialist abilities
             int tickAnimalCalm = Convert.ToInt32(settings.abilityAnimalCalm * 60000);
             DefDatabase<AbilityDef>.GetNamed("AnimalCalm").cooldownTicksRange = new IntRange(tickAnimalCalm, tickAnimalCalm);
@@ -191,6 +207,31 @@ namespace Adjustable_Ability_Cooldowns
             DefDatabase<AbilityDef>.GetNamed("ResearchCommand").cooldownTicksRange = new IntRange(tickResearchCommand, tickResearchCommand);
             int tickMarksmanCommand = Convert.ToInt32(settings.abilityMarksmanCommand * 60000);
             DefDatabase<AbilityDef>.GetNamed("MarksmanCommand").cooldownTicksRange = new IntRange(tickMarksmanCommand, tickMarksmanCommand);
+
+            if (settings.separatedAblilities)
+            {
+                DefDatabase<AbilityDef>.GetNamed("LeaderSpeech").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("Trial").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("WorkDrive").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("CombatCommand").groupDef = null;
+
+                DefDatabase<AbilityDef>.GetNamed("Convert").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("PreachHealth").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("Reassure").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("Counsel").groupDef = null;
+            }
+            else
+            {
+                DefDatabase<AbilityDef>.GetNamed("LeaderSpeech").groupDef = DefDatabase<AbilityGroupDef>.GetNamed("Leader");
+                DefDatabase<AbilityDef>.GetNamed("Trial").groupDef = DefDatabase<AbilityGroupDef>.GetNamed("Leader");
+                DefDatabase<AbilityDef>.GetNamed("WorkDrive").groupDef = DefDatabase<AbilityGroupDef>.GetNamed("Leader");
+                DefDatabase<AbilityDef>.GetNamed("CombatCommand").groupDef = DefDatabase<AbilityGroupDef>.GetNamed("Leader");
+
+                DefDatabase<AbilityDef>.GetNamed("Convert").groupDef = DefDatabase<AbilityGroupDef>.GetNamed("Moralist");
+                DefDatabase<AbilityDef>.GetNamed("PreachHealth").groupDef = DefDatabase<AbilityGroupDef>.GetNamed("Moralist");
+                DefDatabase<AbilityDef>.GetNamed("Reassure").groupDef = DefDatabase<AbilityGroupDef>.GetNamed("Moralist");
+                DefDatabase<AbilityDef>.GetNamed("Counsel").groupDef = DefDatabase<AbilityGroupDef>.GetNamed("Moralist");
+            }
         }
 
         private static void ResetSettings()
@@ -201,9 +242,11 @@ namespace Adjustable_Ability_Cooldowns
             settings.ritualCooldown = 20;
 
             //Leader abilities
+            settings.abilityLeaderSpeech = 10;
             settings.abilityTrial = 10;
             settings.abilityWorkDrive = 10;
             settings.abilityCombatCommand = 10;
+            DefDatabase<AbilityDef>.GetNamed("LeaderSpeech").cooldownTicksRange = new IntRange(600000, 600000);
             DefDatabase<AbilityDef>.GetNamed("Trial").cooldownTicksRange = new IntRange(600000, 600000);
             DefDatabase<AbilityDef>.GetNamed("WorkDrive").cooldownTicksRange = new IntRange(600000, 600000);
             DefDatabase<AbilityDef>.GetNamed("CombatCommand").cooldownTicksRange = new IntRange(600000, 600000);

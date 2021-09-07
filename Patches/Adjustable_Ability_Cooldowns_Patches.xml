@@ -7,6 +7,13 @@
 		<match Class="PatchOperationSequence">
 			<operations>
 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/AbilityDef[defName="LeaderSpeech"]</xpath>
+					<value>
+						<overrideGroupCooldown>True</overrideGroupCooldown>
+						<cooldownTicksRange>600000</cooldownTicksRange>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
 					<xpath>/Defs/AbilityDef[defName="Trial"]</xpath>
 					<value>
 						<overrideGroupCooldown>True</overrideGroupCooldown>
