@@ -74,7 +74,7 @@ namespace Adjustable_Ability_Cooldowns
     {
         private static void DrawIcon(Rect rect, Material buttonMat, GizmoRenderParms parms, Command_Ritual instance)
         {
-            Texture2D badTex = instance.icon;
+            Texture badTex = instance.icon;
             if (badTex == null)
             {
                 badTex = BaseContent.BadTex;
