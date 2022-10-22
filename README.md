@@ -14,7 +14,7 @@ Place Adjustable Ritual Cooldowns above Custom Ritual Framework in your loadorde
 
 FAQ:
 
-A: Can I add it to an existing save?
+Q: Can I add it to an existing save?
 A: Yes, I havent found any problems.
 
 Q: Where should this mod be placed in the mod load order queue?
