@@ -1,8 +1,8 @@
-This mod adds sliders in the mod setting menu to adjust the ability cooldowns and penalty percentage slider.
+This mod adds sliders in the mod setting menu to adjust the ability cooldowns and ritual penalty percentage slider.
 
 Configuration:
 
-You can manually change the amount of penalty percentage from 0% to 100%
+You can manually change the amount of ritual penalty percentage from 0% to 100%
 You can manually change the amount of days it takes for a ability to cooldown from 0 to 20 days.
 
 Via the ingame Options, Mod Options you can tweak those values.
