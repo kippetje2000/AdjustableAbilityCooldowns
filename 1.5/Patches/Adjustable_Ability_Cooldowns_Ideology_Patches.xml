@@ -2,7 +2,7 @@
 <Patch>
 	<Operation Class="PatchOperationFindMod">
 		<mods>
-			<li>Ideology</li>
+			<li>ludeon.rimworld.ideology</li>
 		</mods>
 		<match Class="PatchOperationSequence">
 			<operations>
