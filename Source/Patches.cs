@@ -80,7 +80,7 @@ namespace Adjustable_Ability_Cooldowns
                 badTex = BaseContent.BadTex;
             }
             rect.position += new Vector2(instance.iconOffset.x * rect.size.x, instance.iconOffset.y * rect.size.y);
-            if (!instance.disabled || parms.lowLight)
+            if (!instance.Disabled || parms.lowLight)
             {
                 GUI.color = instance.IconDrawColor;
             }
