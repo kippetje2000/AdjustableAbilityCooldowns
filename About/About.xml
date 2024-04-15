@@ -25,6 +25,9 @@
 	<loadAfter>
 		<li>ludeon.rimworld</li>
 		<li>ludeon.rimworld.royalty</li>
+		<li>ludeon.rimworld.ideolody</li>
+		<li>ludeon.rimworld.biotech</li>
+		<li>ludeon.rimworld.anomaly</li>
 		<li>brrainz.harmony</li>
 	</loadAfter>
 </ModMetaData>

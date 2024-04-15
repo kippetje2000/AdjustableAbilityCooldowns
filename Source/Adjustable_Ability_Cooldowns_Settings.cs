@@ -181,7 +181,7 @@ namespace Adjustable_Ability_Cooldowns
             //More options
             listingStandard.Label("\nMore options");
             listingStandard.AddLabeledCheckbox("Use ablilities separately from each other", ref settings.separatedAblilities);
-            if (ModLister.HasActiveModWithName("ludeon.rimworld.biotech") == true)
+            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
                 //Biotech
                 listingStandard.AddHorizontalLine();
@@ -265,7 +265,7 @@ namespace Adjustable_Ability_Cooldowns
             int tickMarksmanCommand = Convert.ToInt32(settings.abilityMarksmanCommand * 60000);
             DefDatabase<AbilityDef>.GetNamed("MarksmanCommand").cooldownTicksRange = new IntRange(tickMarksmanCommand, tickMarksmanCommand);
 
-            if (ModLister.HasActiveModWithName("ludeon.rimworld.biotech") == true)
+            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
                 //Biotech
                 int tickPiercingSpine = Convert.ToInt32(settings.abilityPiercingSpine * 60);
@@ -367,7 +367,7 @@ namespace Adjustable_Ability_Cooldowns
             DefDatabase<AbilityDef>.GetNamed("ResearchCommand").cooldownTicksRange = new IntRange(180000, 180000);
             DefDatabase<AbilityDef>.GetNamed("MarksmanCommand").cooldownTicksRange = new IntRange(180000, 180000);
 
-            if (ModLister.HasActiveModWithName("ludeon.rimworld.biotech") == true)
+            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
                 //biotech
                 settings.abilityPiercingSpine = 1; //Seconds
@@ -410,7 +410,7 @@ namespace Adjustable_Ability_Cooldowns
         {
             static StartupAdjustable_Ability_Cooldowns()
             {
-                if (ModLister.HasActiveModWithName("ludeon.rimworld.biotech") == true)
+                if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
                 {
                     totalContentHeight = totalContentHeight + 500f;
                 }

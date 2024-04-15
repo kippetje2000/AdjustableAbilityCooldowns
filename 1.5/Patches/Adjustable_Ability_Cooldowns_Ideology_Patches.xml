@@ -114,4 +114,22 @@
 			</operations>
 		</match>
 	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/AbilityDef[defName="WorkDrive"]/verbProperties/targetParams/canTargetSelf</xpath>
+		<value>
+			<canTargetSelf>true</canTargetSelf>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/AbilityDef[defName="PreachHealth"]/verbProperties/targetParams</xpath>
+		<value>
+			<canTargetSelf>true</canTargetSelf>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/AbilityDef[defName="ImmunityDrive"]/verbProperties/targetParams</xpath>
+		<value>
+			<canTargetSelf>true</canTargetSelf>
+		</value>
+	</Operation>
 </Patch>
