@@ -18,39 +18,27 @@ namespace Adjustable_Ability_Cooldowns
         public float ritualCooldown = 20; //Days
 
         //Leader
+        public float abilityRoleLeader = 10; //Days
         public float abilityLeaderSpeech = 10; //Days
         public float abilityTrial = 10; //Days
         public float abilityWorkDrive = 10; //Days
         public float abilityCombatCommand = 10; //Days
 
         //Moral Guide
-        public float abilityConvert = 8; //Days
-        public float abilityPreachHealth = 8; //Days
-        public float abilityReassure = 8; //Days
-        public float abilityCounsel = 8; //Days
+        public float abilityRoleMoralist = 3;
+        public float abilityConvert = 3; //Days
+        public float abilityPreachHealth = 3; //Days
+        public float abilityReassure = 3; //Days
+        public float abilityCounsel = 3; //Days
 
-        //Animal Specialist
+        //Multirole
         public float abilityAnimalCalm = 20; //Days
-
-        //Medical Specialist
         public float abilityImmunityDrive = 3; //Days
-
-        //Melee Specialist
         public float abilityBerserkTrance = 3; //Days
-
-        //Mining Specialist
         public float abilityMiningCommand = 3; //Days
-
-        //Plants Specialist
         public float abilityFarmingCommand = 3; //Days
-
-        //Production Specialist
         public float abilityProductionCommand = 3; //Days
-
-        //Research Specialist
         public float abilityResearchCommand = 3; //Days
-
-        //Shooting Specialist
         public float abilityMarksmanCommand = 3; //Days
 
         //Biotech
@@ -73,49 +61,51 @@ namespace Adjustable_Ability_Cooldowns
         public override void ExposeData()
         {
             //Ritual penalty
-            Scribe_Values.Look(ref ritualPenalty, "ritualPenalty", 95);
-            Scribe_Values.Look(ref ritualCooldown, "ritualCooldown", 20);
+            Scribe_Values.Look(ref ritualPenalty, "ritualPenalty");
+            Scribe_Values.Look(ref ritualCooldown, "ritualCooldown");
 
             //Leader abilities
-            Scribe_Values.Look(ref abilityLeaderSpeech, "abilityLeaderSpeech", 10);
-            Scribe_Values.Look(ref abilityTrial, "abilityTrial", 10);
-            Scribe_Values.Look(ref abilityWorkDrive, "abilityWorkDrive", 10);
-            Scribe_Values.Look(ref abilityCombatCommand, "abilityCombatCommand", 10);
+            Scribe_Values.Look(ref abilityRoleLeader, "abilityRoleLeader");
+            Scribe_Values.Look(ref abilityLeaderSpeech, "abilityLeaderSpeech");
+            Scribe_Values.Look(ref abilityTrial, "abilityTrial");
+            Scribe_Values.Look(ref abilityWorkDrive, "abilityWorkDrive");
+            Scribe_Values.Look(ref abilityCombatCommand, "abilityCombatCommand");
 
-            //Moral Guide abilities
-            Scribe_Values.Look(ref abilityConvert, "abilityConvert", 8);
-            Scribe_Values.Look(ref abilityPreachHealth, "abilityPreachHealth", 8);
-            Scribe_Values.Look(ref abilityReassure, "abilityReassure", 8);
-            Scribe_Values.Look(ref abilityCounsel, "abilityCounsel", 8);
+            //Moralist abilities
+            Scribe_Values.Look(ref abilityRoleMoralist, "abilityRoleMoralist");
+            Scribe_Values.Look(ref abilityConvert, "abilityConvert");
+            Scribe_Values.Look(ref abilityPreachHealth, "abilityPreachHealth");
+            Scribe_Values.Look(ref abilityReassure, "abilityReassure");
+            Scribe_Values.Look(ref abilityCounsel, "abilityCounsel");
 
-            //Specialist abilities
-            Scribe_Values.Look(ref abilityAnimalCalm, "abilityAnimalCalm", 20);
-            Scribe_Values.Look(ref abilityImmunityDrive, "abilityImmunityDrive", 3);
-            Scribe_Values.Look(ref abilityBerserkTrance, "abilityBerserkTrance", 3);
-            Scribe_Values.Look(ref abilityMiningCommand, "abilityMiningCommand", 3);
-            Scribe_Values.Look(ref abilityFarmingCommand, "abilityFarmingCommand", 3);
-            Scribe_Values.Look(ref abilityProductionCommand, "abilityProductionCommand", 3);
-            Scribe_Values.Look(ref abilityResearchCommand, "abilityResearchCommand", 3);
-            Scribe_Values.Look(ref abilityMarksmanCommand, "abilityMarksmanCommand", 3);
+            //MultiRole abilities
+            Scribe_Values.Look(ref abilityAnimalCalm, "abilityAnimalCalm");
+            Scribe_Values.Look(ref abilityImmunityDrive, "abilityImmunityDrive");
+            Scribe_Values.Look(ref abilityBerserkTrance, "abilityBerserkTrance");
+            Scribe_Values.Look(ref abilityMiningCommand, "abilityMiningCommand");
+            Scribe_Values.Look(ref abilityFarmingCommand, "abilityFarmingCommand");
+            Scribe_Values.Look(ref abilityProductionCommand, "abilityProductionCommand");
+            Scribe_Values.Look(ref abilityResearchCommand, "abilityResearchCommand");
+            Scribe_Values.Look(ref abilityMarksmanCommand, "abilityMarksmanCommand");
 
             Scribe_Values.Look(ref separatedAblilities, "separatedAblilities", false);
 
             if (ModLister.HasActiveModWithName("ludeon.rimworld.biotech") == true)
             {
                 //Biotech
-                Scribe_Values.Look(ref abilityPiercingSpine, "abilityPiercingSpine", 1);
-                Scribe_Values.Look(ref abilityResurrect, "abilityResurrect", 120);
-                Scribe_Values.Look(ref abilityAcidSpray, "abilityAcidSpray", 12);
-                Scribe_Values.Look(ref abilityFoamSpray, "abilityFoamSpray", 12);
-                Scribe_Values.Look(ref abilityFireSpew, "abilityFireSpew", 5);
-                Scribe_Values.Look(ref abilityLongjump, "abilityLongjump", 1);
-                Scribe_Values.Look(ref abilityFireBurst, "abilityFireBurst", 45);
-                Scribe_Values.Look(ref abilityAnimalWarcall, "abilityAnimalWarcall", 15);
-                Scribe_Values.Look(ref abilityLongjumpMech, "abilityLongjumpMech", 8);
-                Scribe_Values.Look(ref abilityLongjumpMechLauncher, "abilityLongjumpMechLauncher", 8);
-                Scribe_Values.Look(ref abilitySmokepopMech, "abilitySmokepopMech", 15);
-                Scribe_Values.Look(ref abilityFirefoampopMech, "abilityFirefoampopMech", 5);
-                Scribe_Values.Look(ref abilityResurrectionMech, "abilityResurrectionMech", 2);
+                Scribe_Values.Look(ref abilityPiercingSpine, "abilityPiercingSpine");
+                Scribe_Values.Look(ref abilityResurrect, "abilityResurrect");
+                Scribe_Values.Look(ref abilityAcidSpray, "abilityAcidSpray");
+                Scribe_Values.Look(ref abilityFoamSpray, "abilityFoamSpray");
+                Scribe_Values.Look(ref abilityFireSpew, "abilityFireSpew");
+                Scribe_Values.Look(ref abilityLongjump, "abilityLongjump");
+                Scribe_Values.Look(ref abilityFireBurst, "abilityFireBurst");
+                Scribe_Values.Look(ref abilityAnimalWarcall, "abilityAnimalWarcall");
+                Scribe_Values.Look(ref abilityLongjumpMech, "abilityLongjumpMech");
+                Scribe_Values.Look(ref abilityLongjumpMechLauncher, "abilityLongjumpMechLauncher");
+                Scribe_Values.Look(ref abilitySmokepopMech, "abilitySmokepopMech");
+                Scribe_Values.Look(ref abilityFirefoampopMech, "abilityFirefoampopMech");
+                Scribe_Values.Look(ref abilityResurrectionMech, "abilityResurrectionMech");
             }
 
             base.ExposeData();
@@ -148,60 +138,64 @@ namespace Adjustable_Ability_Cooldowns
             listingStandard.Begin(rectThatHasEverything);
 
             //ritual penalty
-            listingStandard.Label("\nRitual");
+            listingStandard.Label("Ritual");
             listingStandard.AddLabeledSlider("Percentage for the Ritual Penalty (" + settings.ritualPenalty + ") %", ref settings.ritualPenalty, 0, 100, "0", "100", 1f);
-            listingStandard.AddLabeledSlider("Cooldown for the Rituals (" + settings.ritualCooldown + ") Days", ref settings.ritualCooldown, 0, 20, "0", "20", 1f);
+            listingStandard.AddLabeledSlider("Cooldown for the Rituals (" + settings.ritualCooldown + ") Days", ref settings.ritualCooldown, 0, 20, "0", "20", 0.5f);
             //Abilities
             listingStandard.AddHorizontalLine();
             //Leader abilities
-            listingStandard.Label("\nLeader abilities");
-            listingStandard.AddLabeledSlider("Cooldown for the ability: LeaderSpeech (" + settings.abilityLeaderSpeech + ") Days", ref settings.abilityLeaderSpeech, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: Trial (" + settings.abilityTrial + ") Days", ref settings.abilityTrial, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: WorkDrive (" + settings.abilityWorkDrive + ") Days", ref settings.abilityWorkDrive, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: CombatCommand (" + settings.abilityCombatCommand + ") Days", ref settings.abilityCombatCommand, 0, 20, "0", "20", 1);
+            listingStandard.Label("Leader abilities");
+            listingStandard.AddLabeledSlider("Cooldown for the ability: LeaderSpeech (" + settings.abilityLeaderSpeech + ") Days", ref settings.abilityLeaderSpeech, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: Trial (" + settings.abilityTrial + ") Days", ref settings.abilityTrial, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: WorkDrive (" + settings.abilityWorkDrive + ") Days", ref settings.abilityWorkDrive, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: CombatCommand (" + settings.abilityCombatCommand + ") Days", ref settings.abilityCombatCommand, 0, 20, "0", "20", 0.5f);
             listingStandard.AddHorizontalLine();
             //Moral Guide abilities
-            listingStandard.Label("\nMoral Guide abilities");
-            listingStandard.AddLabeledSlider("Cooldown for the ability: Convert (" + settings.abilityConvert + ") Days", ref settings.abilityConvert, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: PreachHealth (" + settings.abilityPreachHealth + ") Days", ref settings.abilityPreachHealth, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: Reassure (" + settings.abilityReassure + ") Days", ref settings.abilityReassure, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: Counsel (" + settings.abilityCounsel + ") Days", ref settings.abilityCounsel, 0, 20, "0", "20", 1);
+            listingStandard.Label("Moral Guide abilities");
+            listingStandard.AddLabeledSlider("Cooldown for the ability: Convert (" + settings.abilityConvert + ") Days", ref settings.abilityConvert, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: PreachHealth (" + settings.abilityPreachHealth + ") Days", ref settings.abilityPreachHealth, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: Reassure (" + settings.abilityReassure + ") Days", ref settings.abilityReassure, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: Counsel (" + settings.abilityCounsel + ") Days", ref settings.abilityCounsel, 0, 20, "0", "20", 0.5f);
             listingStandard.AddHorizontalLine();
             //Specialist abilities
-            listingStandard.Label("\nSpecialist abilities");
-            listingStandard.AddLabeledSlider("Cooldown for the ability: AnimalCalm (" + settings.abilityAnimalCalm + ") Days", ref settings.abilityAnimalCalm, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: ImmunityDrive (" + settings.abilityImmunityDrive + ") Days", ref settings.abilityImmunityDrive, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: BerserkTrance (" + settings.abilityBerserkTrance + ") Days", ref settings.abilityBerserkTrance, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: MiningCommand (" + settings.abilityMiningCommand + ") Days", ref settings.abilityMiningCommand, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: FarmingCommand (" + settings.abilityFarmingCommand + ") Days", ref settings.abilityFarmingCommand, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: ProductionCommand (" + settings.abilityProductionCommand + ") Days", ref settings.abilityProductionCommand, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: ResearchCommand (" + settings.abilityResearchCommand + ") Days", ref settings.abilityResearchCommand, 0, 20, "0", "20", 1);
-            listingStandard.AddLabeledSlider("Cooldown for the ability: MarksmanCommand (" + settings.abilityMarksmanCommand + ") Days", ref settings.abilityMarksmanCommand, 0, 20, "0", "20", 1);
+            listingStandard.Label("Specialist abilities");
+            listingStandard.AddLabeledSlider("Cooldown for the ability: AnimalCalm (" + settings.abilityAnimalCalm + ") Days", ref settings.abilityAnimalCalm, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: ImmunityDrive (" + settings.abilityImmunityDrive + ") Days", ref settings.abilityImmunityDrive, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: BerserkTrance (" + settings.abilityBerserkTrance + ") Days", ref settings.abilityBerserkTrance, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: MiningCommand (" + settings.abilityMiningCommand + ") Days", ref settings.abilityMiningCommand, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: FarmingCommand (" + settings.abilityFarmingCommand + ") Days", ref settings.abilityFarmingCommand, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: ProductionCommand (" + settings.abilityProductionCommand + ") Days", ref settings.abilityProductionCommand, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: ResearchCommand (" + settings.abilityResearchCommand + ") Days", ref settings.abilityResearchCommand, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the ability: MarksmanCommand (" + settings.abilityMarksmanCommand + ") Days", ref settings.abilityMarksmanCommand, 0, 20, "0", "20", 0.5f);
             listingStandard.AddHorizontalLine();
             //More options
-            listingStandard.Label("\nMore options");
+            listingStandard.Label("More options");
             listingStandard.AddLabeledCheckbox("Use ablilities separately from each other", ref settings.separatedAblilities);
+            listingStandard.Label("If option above is off, Sliders from the Leader abilities and Moral Guide abilities will no longer work and the sliders below will allow you to adjust the cooldown of those roles");
+            listingStandard.AddLabeledSlider("Cooldown for the role: Leader (" + settings.abilityRoleLeader + ") Days", ref settings.abilityRoleLeader, 0, 20, "0", "20", 0.5f);
+            listingStandard.AddLabeledSlider("Cooldown for the role: Moralist (" + settings.abilityRoleMoralist + ") Days", ref settings.abilityRoleMoralist, 0, 20, "0", "20", 0.5f);
+
+
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
                 //Biotech
                 listingStandard.AddHorizontalLine();
-                listingStandard.Label("\nBiotech abilities");
+                listingStandard.Label("Biotech abilities");
                 listingStandard.AddLabeledSlider("Cooldown for the ability: PiercingSpine (" + settings.abilityPiercingSpine + ") Seconds", ref settings.abilityPiercingSpine, 0, 60, "0", "60", 1);
-                listingStandard.AddLabeledSlider("Cooldown for the ability: Resurrect (" + settings.abilityResurrect + ") Days", ref settings.abilityResurrect, 0, 120, "0", "120", 1);
-                listingStandard.AddLabeledSlider("Cooldown for the ability: AcidSpray (" + settings.abilityAcidSpray + ") Hours", ref settings.abilityAcidSpray, 0, 24, "0", "24", 1);
-                listingStandard.AddLabeledSlider("Cooldown for the ability: FoamSpray (" + settings.abilityFoamSpray + ") Hours", ref settings.abilityFoamSpray, 0, 24, "0", "24", 1);
-                listingStandard.AddLabeledSlider("Cooldown for the ability: FireSpew (" + settings.abilityFireSpew + ") Days", ref settings.abilityFireSpew, 0, 15, "0", "15", 1);
+                listingStandard.AddLabeledSlider("Cooldown for the ability: Resurrect (" + settings.abilityResurrect + ") Days", ref settings.abilityResurrect, 0, 120, "0", "120", 0.5f);
+                listingStandard.AddLabeledSlider("Cooldown for the ability: AcidSpray (" + settings.abilityAcidSpray + ") Hours", ref settings.abilityAcidSpray, 0, 24, "0", "24", 0.5f);
+                listingStandard.AddLabeledSlider("Cooldown for the ability: FoamSpray (" + settings.abilityFoamSpray + ") Hours", ref settings.abilityFoamSpray, 0, 24, "0", "24", 0.5f);
+                listingStandard.AddLabeledSlider("Cooldown for the ability: FireSpew (" + settings.abilityFireSpew + ") Days", ref settings.abilityFireSpew, 0, 15, "0", "15", 0.5f);
                 listingStandard.AddLabeledSlider("Cooldown for the ability: Longjump (" + settings.abilityLongjump + ") Seconds", ref settings.abilityLongjump, 0, 60, "0", "60", 1);
                 listingStandard.AddLabeledSlider("Cooldown for the ability: FireBurst (" + settings.abilityFireBurst + ") Seconds", ref settings.abilityFireBurst, 0, 60, "0", "60", 1);
-                listingStandard.AddLabeledSlider("Cooldown for the ability: AnimalWarcall (" + settings.abilityAnimalWarcall + ") Days", ref settings.abilityAnimalWarcall, 0, 15, "0", "15", 1);
+                listingStandard.AddLabeledSlider("Cooldown for the ability: AnimalWarcall (" + settings.abilityAnimalWarcall + ") Days", ref settings.abilityAnimalWarcall, 0, 15, "0", "15", 0.5f);
                 listingStandard.AddLabeledSlider("Cooldown for the ability: LongjumpMech (" + settings.abilityLongjumpMech + ") Seconds", ref settings.abilityLongjumpMech, 0, 60, "0", "60", 1);
-                listingStandard.AddLabeledSlider("Cooldown for the ability: LongjumpMechLauncher (" + settings.abilityLongjumpMechLauncher + ") Hours", ref settings.abilityLongjumpMechLauncher, 0, 8, "0", "8", 1);
-                listingStandard.AddLabeledSlider("Cooldown for the ability: SmokepopMech (" + settings.abilitySmokepopMech + ") Days", ref settings.abilitySmokepopMech, 0, 15, "0", "15", 1);
-                listingStandard.AddLabeledSlider("Cooldown for the ability: FirefoampopMech (" + settings.abilityFirefoampopMech + ") Days", ref settings.abilityFirefoampopMech, 0, 15, "0", "15", 1);
+                listingStandard.AddLabeledSlider("Cooldown for the ability: LongjumpMechLauncher (" + settings.abilityLongjumpMechLauncher + ") Hours", ref settings.abilityLongjumpMechLauncher, 0, 24, "0", "24", 0.5f);
+                listingStandard.AddLabeledSlider("Cooldown for the ability: SmokepopMech (" + settings.abilitySmokepopMech + ") Days", ref settings.abilitySmokepopMech, 0, 15, "0", "15", 0.5f);
+                listingStandard.AddLabeledSlider("Cooldown for the ability: FirefoampopMech (" + settings.abilityFirefoampopMech + ") Days", ref settings.abilityFirefoampopMech, 0, 15, "0", "15", 0.5f);
                 listingStandard.AddLabeledSlider("Cooldown for the ability: ResurrectionMech (" + settings.abilityResurrectionMech + ") Seconds", ref settings.abilityResurrectionMech, 0, 60, "0", "60", 1);
             }
 
-            //listingStandard.AddLabeledNumericalTextField<float>("Cooldown for the ability: PiercingSpine (" + settings.abilityPiercingSpine + ") Seconds", ref settings.abilityPiercingSpine, minValue: 1, maxValue: 60);
             listingStandard.AddHorizontalLine();
             listingStandard.End();
             Widgets.EndScrollView();
@@ -228,6 +222,8 @@ namespace Adjustable_Ability_Cooldowns
         private static void ApplySettings()
         {
             //Leader abilities
+            int tickRoleMoralist = Convert.ToInt32(settings.abilityRoleMoralist * 60000);
+            DefDatabase<AbilityGroupDef>.GetNamed("Moralist").cooldownTicks = tickRoleMoralist;
             int tickLeaderSpeech = Convert.ToInt32(settings.abilityLeaderSpeech * 60000);
             DefDatabase<AbilityDef>.GetNamed("LeaderSpeech").cooldownTicksRange = new IntRange(tickLeaderSpeech, tickLeaderSpeech);
             int tickTrial = Convert.ToInt32(settings.abilityTrial * 60000);
@@ -237,7 +233,9 @@ namespace Adjustable_Ability_Cooldowns
             int tickCombatCommand = Convert.ToInt32(settings.abilityCombatCommand * 60000);
             DefDatabase<AbilityDef>.GetNamed("CombatCommand").cooldownTicksRange = new IntRange(tickCombatCommand, tickCombatCommand);
 
-            //Moral Guide abilities
+            //Moralist abilities
+            int tickRoleLeader = Convert.ToInt32(settings.abilityRoleLeader * 60000);
+            DefDatabase<AbilityGroupDef>.GetNamed("Leader").cooldownTicks = tickRoleLeader;
             int tickConvert = Convert.ToInt32(settings.abilityConvert * 60000);
             DefDatabase<AbilityDef>.GetNamed("Convert").cooldownTicksRange = new IntRange(tickConvert, tickConvert);
             int tickPreachHealth = Convert.ToInt32(settings.abilityPreachHealth * 60000);
@@ -247,7 +245,7 @@ namespace Adjustable_Ability_Cooldowns
             int tickCounsel = Convert.ToInt32(settings.abilityCounsel * 60000);
             DefDatabase<AbilityDef>.GetNamed("Counsel").cooldownTicksRange = new IntRange(tickCounsel, tickCounsel);
 
-            //Specialist abilities
+            //MultiRole abilities
             int tickAnimalCalm = Convert.ToInt32(settings.abilityAnimalCalm * 60000);
             DefDatabase<AbilityDef>.GetNamed("AnimalCalm").cooldownTicksRange = new IntRange(tickAnimalCalm, tickAnimalCalm);
             int tickImmunityDrive = Convert.ToInt32(settings.abilityImmunityDrive * 60000);
@@ -307,6 +305,15 @@ namespace Adjustable_Ability_Cooldowns
                 DefDatabase<AbilityDef>.GetNamed("PreachHealth").groupDef = null;
                 DefDatabase<AbilityDef>.GetNamed("Reassure").groupDef = null;
                 DefDatabase<AbilityDef>.GetNamed("Counsel").groupDef = null;
+
+                DefDatabase<AbilityDef>.GetNamed("AnimalCalm").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("ImmunityDrive").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("BerserkTrance").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("MiningCommand").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("FarmingCommand").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("ProductionCommand").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("ResearchCommand").groupDef = null;
+                DefDatabase<AbilityDef>.GetNamed("MarksmanCommand").groupDef = null;
             }
             else
             {
@@ -330,26 +337,30 @@ namespace Adjustable_Ability_Cooldowns
             settings.ritualCooldown = 20; //Days
 
             //Leader abilities
+            settings.abilityRoleLeader = 10; //Days
             settings.abilityLeaderSpeech = 10; //Days
             settings.abilityTrial = 10; //Days
             settings.abilityWorkDrive = 10; //Days
             settings.abilityCombatCommand = 10; //Days
+            DefDatabase<AbilityGroupDef>.GetNamed("Leader").cooldownTicks = 600000;
             DefDatabase<AbilityDef>.GetNamed("LeaderSpeech").cooldownTicksRange = new IntRange(600000, 600000);
             DefDatabase<AbilityDef>.GetNamed("Trial").cooldownTicksRange = new IntRange(600000, 600000);
             DefDatabase<AbilityDef>.GetNamed("WorkDrive").cooldownTicksRange = new IntRange(600000, 600000);
             DefDatabase<AbilityDef>.GetNamed("CombatCommand").cooldownTicksRange = new IntRange(600000, 600000);
 
-            //Moral Guide abilities
-            settings.abilityConvert = 8; //Days
-            settings.abilityPreachHealth = 8; //Days
-            settings.abilityReassure = 8; //Days
-            settings.abilityCounsel = 8; //Days
-            DefDatabase<AbilityDef>.GetNamed("Convert").cooldownTicksRange = new IntRange(480000, 480000);
-            DefDatabase<AbilityDef>.GetNamed("PreachHealth").cooldownTicksRange = new IntRange(480000, 480000);
-            DefDatabase<AbilityDef>.GetNamed("Reassure").cooldownTicksRange = new IntRange(480000, 480000);
-            DefDatabase<AbilityDef>.GetNamed("Counsel").cooldownTicksRange = new IntRange(480000, 480000);
+            //Moralist abilities
+            settings.abilityRoleMoralist = 3; //Days
+            settings.abilityConvert = 3; //Days
+            settings.abilityPreachHealth = 3; //Days
+            settings.abilityReassure = 3; //Days
+            settings.abilityCounsel = 3; //Days
+            DefDatabase<AbilityGroupDef>.GetNamed("Moralist").cooldownTicks = 180000;
+            DefDatabase<AbilityDef>.GetNamed("Convert").cooldownTicksRange = new IntRange(180000, 180000);
+            DefDatabase<AbilityDef>.GetNamed("PreachHealth").cooldownTicksRange = new IntRange(180000, 180000);
+            DefDatabase<AbilityDef>.GetNamed("Reassure").cooldownTicksRange = new IntRange(180000, 180000);
+            DefDatabase<AbilityDef>.GetNamed("Counsel").cooldownTicksRange = new IntRange(180000, 180000);
 
-            //Specialist abilities
+            //MultiRole abilities
             settings.abilityAnimalCalm = 20; //Days
             settings.abilityImmunityDrive = 3; //Days
             settings.abilityBerserkTrance = 3; //Days
@@ -366,6 +377,8 @@ namespace Adjustable_Ability_Cooldowns
             DefDatabase<AbilityDef>.GetNamed("ProductionCommand").cooldownTicksRange = new IntRange(180000, 180000);
             DefDatabase<AbilityDef>.GetNamed("ResearchCommand").cooldownTicksRange = new IntRange(180000, 180000);
             DefDatabase<AbilityDef>.GetNamed("MarksmanCommand").cooldownTicksRange = new IntRange(180000, 180000);
+
+            settings.separatedAblilities = false;
 
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
