@@ -4,87 +4,11 @@
 		<mods>
 			<li>ludeon.rimworld.biotech</li>
 		</mods>
-		<match Class="PatchOperationSequence">
-			<operations>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="PiercingSpine"]</xpath>
-					<value>
-						<cooldownTicksRange>60</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="Resurrect"]</xpath>
-					<value>
-						<cooldownTicksRange>7200000</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="AcidSpray"]</xpath>
-					<value>
-						<cooldownTicksRange>30000</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="FoamSpray"]</xpath>
-					<value>
-						<cooldownTicksRange>30000</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="FireSpew"]</xpath>
-					<value>
-						<cooldownTicksRange>300000</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="Longjump"]</xpath>
-					<value>
-						<cooldownTicksRange>60</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="FireBurst"]</xpath>
-					<value>
-						<cooldownTicksRange>2700</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="AnimalWarcall"]</xpath>
-					<value>
-						<cooldownTicksRange>900000</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="LongJumpMech"]</xpath>
-					<value>
-						<cooldownTicksRange>480</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="LongjumpMechLauncher"]</xpath>
-					<value>
-						<cooldownTicksRange>20000</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="SmokepopMech"]</xpath>
-					<value>
-						<cooldownTicksRange>900000</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="FirefoampopMech"]</xpath>
-					<value>
-						<cooldownTicksRange>300000</cooldownTicksRange>
-					</value>
-				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/AbilityDef[defName="ResurrectionMech"]</xpath>
-					<value>
-						<cooldownTicksRange>120</cooldownTicksRange>
-					</value>
-				</li>
-			</operations>
-		</match>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/AbilityDef[defName="Coagulate"]/verbProperties/targetParams/canTargetSelf</xpath>
+		<value>
+			<canTargetSelf>true</canTargetSelf>
+		</value>
 	</Operation>
 </Patch>

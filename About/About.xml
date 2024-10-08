@@ -8,9 +8,8 @@
 		<li>1.4</li>
 		<li>1.5</li>
 	</supportedVersions>
-
 	<description>This mod adds the ability to adjust the ability cooldowns.</description>
-
+	<url>https://github.com/kippetje2000</url>
 	<modDependencies>
 		<li>
 			<packageId>brrainz.harmony</packageId>
