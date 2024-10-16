@@ -59,6 +59,21 @@ namespace Adjustable_Ability_Cooldowns
         public float abilityResurrectionMech = 2; //Seconds
 
         //Anomaly
+        public float ritualVoidProvocation = 5; //Days
+        public float ritualImbueDeathRefusal = 15; //Days
+        public float ritualPhilophagy = 5; //Days
+        public float ritualSummonAnimals = 10; //Days
+        public float ritualSummonShamblers = 5; //Days
+        public float ritualSummonPitGate = 45; //360
+        public float ritualChronophagy = 5; //Days
+        public float ritualPleasurePulse = 5; //Days
+        public float ritualNeurosisPulse = 5; //Days
+        public float ritualBloodRain = 25; //Days
+        public float ritualBrainwipe = 20; //Days
+        public float ritualPsychophagy = 5; //Days
+        public float ritualSkipAbduction = 10; //Days
+        public float ritualSummonFleshbeasts = 5; //Days
+
         public float abilityUnnaturalHealing = 6; //Days
         public float abilityShapeFlesh = 40; //Seconds
         public float abilityTransmuteSteel = 20; //Hours
@@ -123,7 +138,22 @@ namespace Adjustable_Ability_Cooldowns
             }
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.anomaly") != null)
             {
-                //Biotech
+                //Anomaly
+                Scribe_Values.Look(ref ritualVoidProvocation, "ritualVoidProvocation");
+                Scribe_Values.Look(ref ritualImbueDeathRefusal, "ritualImbueDeathRefusal");
+                Scribe_Values.Look(ref ritualPhilophagy, "ritualPhilophagy");
+                Scribe_Values.Look(ref ritualSummonAnimals, "ritualSummonAnimals");
+                Scribe_Values.Look(ref ritualSummonShamblers, "ritualSummonShamblers");
+                Scribe_Values.Look(ref ritualSummonPitGate, "ritualSummonPitGate");
+                Scribe_Values.Look(ref ritualChronophagy, "ritualChronophagy");
+                Scribe_Values.Look(ref ritualPleasurePulse, "ritualPleasurePulse");
+                Scribe_Values.Look(ref ritualNeurosisPulse, "ritualNeurosisPulse");
+                Scribe_Values.Look(ref ritualBloodRain, "ritualBloodRain");
+                Scribe_Values.Look(ref ritualBrainwipe, "ritualBrainwipe");
+                Scribe_Values.Look(ref ritualPsychophagy, "ritualPsychophagy");
+                Scribe_Values.Look(ref ritualSkipAbduction, "ritualSkipAbduction");
+                Scribe_Values.Look(ref ritualSummonFleshbeasts, "ritualSummonFleshbeasts");
+
                 Scribe_Values.Look(ref abilityUnnaturalHealing, "abilityUnnaturalHealing");
                 Scribe_Values.Look(ref abilityShapeFlesh, "abilityShapeFlesh");
                 Scribe_Values.Look(ref abilityTransmuteSteel, "abilityTransmuteSteel");
@@ -277,6 +307,23 @@ namespace Adjustable_Ability_Cooldowns
             void DrawAnomaly(Listing_Standard listing_Standard)
             {
                 //Anomaly
+                listing_Standard.Label("Anomaly rituals");
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: VoidProvocation (" + settings.ritualVoidProvocation + ") Days", ref settings.ritualVoidProvocation, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: ImbueDeathRefusal (" + settings.ritualImbueDeathRefusal + ") Days", ref settings.ritualImbueDeathRefusal, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: Philophagy (" + settings.ritualPhilophagy + ") Days", ref settings.ritualPhilophagy, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonAnimals (" + settings.ritualSummonAnimals + ") Days", ref settings.ritualSummonAnimals, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonShamblers (" + settings.ritualSummonShamblers + ") Days", ref settings.ritualSummonShamblers, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonPitGate (" + settings.ritualSummonPitGate + ") Days", ref settings.ritualSummonPitGate, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: Chronophagy (" + settings.ritualChronophagy + ") Days", ref settings.ritualChronophagy, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: PleasurePulse (" + settings.ritualPleasurePulse + ") Days", ref settings.ritualPleasurePulse, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: NeurosisPulse (" + settings.ritualNeurosisPulse + ") Days", ref settings.ritualNeurosisPulse, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: BloodRain (" + settings.ritualBloodRain + ") Days", ref settings.ritualBloodRain, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: Brainwipe (" + settings.ritualBrainwipe + ") Days", ref settings.ritualBrainwipe, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: Psychophagy (" + settings.ritualPsychophagy + ") Days", ref settings.ritualPsychophagy, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: SkipAbduction (" + settings.ritualSkipAbduction + ") Days", ref settings.ritualSkipAbduction, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonFleshbeasts (" + settings.ritualSummonFleshbeasts + ") Days", ref settings.ritualSummonFleshbeasts, 0.5f, 60, "0.5", "60", 0.5f);
+                listing_Standard.AddHorizontalLine();
+
                 listing_Standard.Label("Anomaly abilities");
                 listing_Standard.AddLabeledSlider("Cooldown for the ability: UnnaturalHealing (" + settings.abilityUnnaturalHealing + ") Days", ref settings.abilityUnnaturalHealing, 0, 15, "0", "15", 0.5f);
                 listing_Standard.AddLabeledSlider("Cooldown for the ability: ShapeFlesh (" + settings.abilityShapeFlesh + ") Seconds", ref settings.abilityShapeFlesh, 0, 120, "0", "120", 1);
@@ -289,6 +336,8 @@ namespace Adjustable_Ability_Cooldowns
                 listing_Standard.AddLabeledSlider("Cooldown for the ability: RevenantInvisibility (" + settings.abilityRevenantInvisibility + ") Hours", ref settings.abilityRevenantInvisibility, 0, 24, "0", "24", 0.5f);
                 listing_Standard.AddLabeledSlider("Cooldown for the ability: VoidTerror (" + settings.abilityVoidTerror + ") Hours", ref settings.abilityVoidTerror, 0, 24, "0", "24", 0.5f);
                 listing_Standard.AddHorizontalLine();
+                listing_Standard.Label("/n");
+                listing_Standard.Label("/n");
             }
 
             base.DoSettingsWindowContents(inRect);
@@ -371,6 +420,23 @@ namespace Adjustable_Ability_Cooldowns
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.anomaly") != null)
             {
                 //Anomoly
+                //Rituals
+                DefDatabase<PsychicRitualDef>.GetNamed("VoidProvocation").cooldownHours = Convert.ToInt32(settings.ritualVoidProvocation * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("ImbueDeathRefusal").cooldownHours = Convert.ToInt32(settings.ritualImbueDeathRefusal * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("Philophagy").cooldownHours = Convert.ToInt32(settings.ritualPhilophagy * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("SummonAnimals").cooldownHours = Convert.ToInt32(settings.ritualSummonAnimals * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("SummonShamblers").cooldownHours = Convert.ToInt32(settings.ritualSummonShamblers * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("SummonPitGate").cooldownHours = Convert.ToInt32(settings.ritualSummonPitGate * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("Chronophagy").cooldownHours = Convert.ToInt32(settings.ritualChronophagy * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("PleasurePulse").cooldownHours = Convert.ToInt32(settings.ritualPleasurePulse * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("NeurosisPulse").cooldownHours = Convert.ToInt32(settings.ritualNeurosisPulse * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("BloodRain").cooldownHours = Convert.ToInt32(settings.ritualBloodRain * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("Brainwipe").cooldownHours = Convert.ToInt32(settings.ritualBrainwipe * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("Psychophagy").cooldownHours = Convert.ToInt32(settings.ritualPsychophagy * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("SkipAbductionPlayer").cooldownHours = Convert.ToInt32(settings.ritualSkipAbduction * 24);
+                DefDatabase<PsychicRitualDef>.GetNamed("SummonFleshbeastsPlayer").cooldownHours = Convert.ToInt32(settings.ritualSummonFleshbeasts * 24);
+
+                //Abilities
                 int tickUnnaturalHealing = Convert.ToInt32(settings.abilityUnnaturalHealing * 60000 + 1);
                 DefDatabase<AbilityDef>.GetNamed("UnnaturalHealing").cooldownTicksRange = new IntRange(tickUnnaturalHealing, tickUnnaturalHealing);
                 int tickShapeFlesh = Convert.ToInt32(settings.abilityShapeFlesh * 60 + 1);
@@ -513,6 +579,37 @@ namespace Adjustable_Ability_Cooldowns
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.anomaly") != null)
             {
                 //Anomoly
+                //Rituals
+
+                settings.ritualVoidProvocation = 5; //Days
+                settings.ritualImbueDeathRefusal = 15; //Days
+                settings.ritualPhilophagy = 5; //Days
+                settings.ritualSummonAnimals = 10; //Days
+                settings.ritualSummonShamblers = 5; //Days
+                settings.ritualSummonPitGate = 45; //360
+                settings.ritualChronophagy = 5; //Days
+                settings.ritualPleasurePulse = 5; //Days
+                settings.ritualNeurosisPulse = 5; //Days
+                settings.ritualBloodRain = 25; //Days
+                settings.ritualBrainwipe = 20; //Days
+                settings.ritualPsychophagy = 5; //Days
+                settings.ritualSkipAbduction = 10; //Days
+                settings.ritualSummonFleshbeasts = 5; //Days
+                DefDatabase<PsychicRitualDef>.GetNamed("VoidProvocation").cooldownHours = 5 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("ImbueDeathRefusal").cooldownHours = 15 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("Philophagy").cooldownHours = 5 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("SummonAnimals").cooldownHours = 10 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("SummonShamblers").cooldownHours = 5 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("SummonPitGate").cooldownHours = 45 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("Chronophagy").cooldownHours = 5 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("PleasurePulse").cooldownHours = 5 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("NeurosisPulse").cooldownHours = 5 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("BloodRain").cooldownHours = 25 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("Brainwipe").cooldownHours = 20 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("Psychophagy").cooldownHours = 5 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("SkipAbductionPlayer").cooldownHours = 10 * 24;
+                DefDatabase<PsychicRitualDef>.GetNamed("SummonFleshbeastsPlayer").cooldownHours = 5 * 24;
+                //Abilities
                 settings.abilityUnnaturalHealing = 6; //Days
                 settings.abilityShapeFlesh = 40; //Seconds
                 settings.abilityTransmuteSteel = 20; //Hours
