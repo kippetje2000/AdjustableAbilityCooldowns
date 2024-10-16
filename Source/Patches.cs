@@ -7,33 +7,32 @@ using Verse;
 namespace Adjustable_Ability_Cooldowns
 {
     [HarmonyPatch(typeof(Precept_Ritual), "get_RepeatQualityPenalty")]
-    class Patch_RepeatQualityPenalty
+    internal class Patch_RepeatQualityPenalty
     {
-
-        static bool Prefix(Precept_Ritual __instance, ref float __result)
+        private static bool Prefix(Precept_Ritual __instance, ref float __result)
         {
-            __result = Mathf.Lerp(Adjustable_Ability_Cooldowns.settings.ritualPenalty * -1 / 100, 0f, (float)__instance.TicksSinceLastPerformed / (60000f * (float)Adjustable_Ability_Cooldowns.settings.ritualCooldown));
+            __result = Mathf.Lerp(Adjustable_Ability_Cooldowns.settings.ritualPenalty * -1 / 100, 0f, __instance.TicksSinceLastPerformed / (60000f * Adjustable_Ability_Cooldowns.settings.ritualCooldown));
             return false;
         }
     }
 
     [HarmonyPatch(typeof(Precept_Ritual), "TipMainPart")]
-    class Patch_TipMainPart
+    internal class Patch_TipMainPart
     {
         private static string ColorizeWarning(TaggedString title)
         {
             return title.Resolve().Colorize(ColoredText.ThreatColor);
         }
 
-        static bool Prefix(Precept_Ritual __instance, ref string __result, StringBuilder ___tmpCompsDesc)
+        private static bool Prefix(Precept_Ritual __instance, ref string __result, StringBuilder ___tmpCompsDesc)
         {
             float ritualCooldown = Adjustable_Ability_Cooldowns.settings.ritualCooldown;
 
             ___tmpCompsDesc.Clear();
             if (__instance.RepeatPenaltyActive)
             {
-                float value = (float)Mathf.RoundToInt(__instance.RepeatPenaltyProgress * ritualCooldown * 10f) / 10f;
-                float value2 = (float)Mathf.RoundToInt((1f - __instance.RepeatPenaltyProgress) * ritualCooldown * 10f) / 10f;
+                float value = Mathf.RoundToInt(__instance.RepeatPenaltyProgress * ritualCooldown * 10f) / 10f;
+                float value2 = Mathf.RoundToInt((1f - __instance.RepeatPenaltyProgress) * ritualCooldown * 10f) / 10f;
                 ___tmpCompsDesc.AppendLine(ColorizeWarning("RitualRepeatPenaltyTip".Translate(ritualCooldown, value, __instance.RepeatQualityPenalty.ToStringPercent(), value2)));
                 ___tmpCompsDesc.AppendLine();
             }
@@ -109,9 +108,9 @@ namespace Adjustable_Ability_Cooldowns
                 Text.Font = GameFont.Tiny;
                 Text.Anchor = TextAnchor.UpperCenter;
                 float num = (float)(ritualCooldownTicks - ___ritual.TicksSinceLastPerformed) / 60000f;
-                Widgets.Label(label: "PeriodDays".Translate((!(num >= 1f)) ? ((float)(int)(num * 10f) / 10f) : ((float)Mathf.RoundToInt(num))), rect: rect);
+                Widgets.Label(label: "PeriodDays".Translate((!(num >= 1f)) ? ((int)(num * 10f) / 10f) : Mathf.RoundToInt(num)), rect: rect);
                 Text.Anchor = TextAnchor.UpperLeft;
-                GUI.DrawTexture(new Rect(rect.xMax - (float)___PenaltyIconSize.x, rect.yMin + 4f, ___PenaltyIconSize.x, ___PenaltyIconSize.z), ___PenaltyArrowTex);
+                GUI.DrawTexture(new Rect(rect.xMax - ___PenaltyIconSize.x, rect.yMin + 4f, ___PenaltyIconSize.x, ___PenaltyIconSize.z), ___PenaltyArrowTex);
             }
 
             return false;
@@ -119,20 +118,20 @@ namespace Adjustable_Ability_Cooldowns
     }
 
     [HarmonyPatch(typeof(Precept_Ritual), "get_RepeatPenaltyProgress")]
-    class Patch_RepeatPenaltyProgress
+    internal class Patch_RepeatPenaltyProgress
     {
-        static bool Prefix(Precept_Ritual __instance, ref float __result)
+        private static bool Prefix(Precept_Ritual __instance, ref float __result)
         {
             float ritualCooldown = Adjustable_Ability_Cooldowns.settings.ritualCooldown;
-            __result = (float)__instance.TicksSinceLastPerformed / (ritualCooldown * 60000f);
+            __result = __instance.TicksSinceLastPerformed / (ritualCooldown * 60000f);
             return false;
         }
     }
 
     [HarmonyPatch(typeof(Precept_Ritual), "get_RepeatPenaltyActive")]
-    class Patch_RepeatPenaltyActive
+    internal class Patch_RepeatPenaltyActive
     {
-        static bool Prefix(Precept_Ritual __instance, ref bool __result)
+        private static bool Prefix(Precept_Ritual __instance, ref bool __result)
         {
             float ritualCooldown = Adjustable_Ability_Cooldowns.settings.ritualCooldown;
             __result = __instance.isAnytime && __instance.lastFinishedTick != -1 && __instance.def.useRepeatPenalty && __instance.TicksSinceLastPerformed < (ritualCooldown * 60000f);

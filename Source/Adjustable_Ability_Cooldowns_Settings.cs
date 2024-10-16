@@ -157,8 +157,10 @@ namespace Adjustable_Ability_Cooldowns
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            var tabs = new List<TabRecord>();
-            tabs.Add(new TabRecord("Ideology", delegate { selectedTab = Tab.ideology; }, selectedTab == Tab.ideology));
+            List<TabRecord> tabs = new List<TabRecord>
+            {
+                new TabRecord("Ideology", delegate { selectedTab = Tab.ideology; }, selectedTab == Tab.ideology)
+            };
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
                 tabs.Add(new TabRecord("Biotech", delegate { selectedTab = Tab.biotech; }, selectedTab == Tab.biotech));
@@ -169,15 +171,24 @@ namespace Adjustable_Ability_Cooldowns
             }
 
             GUI.BeginGroup(inRect);
-            var options = new Listing_Standard();
+            Listing_Standard options = new Listing_Standard();
             Rect viewRect = new Rect(0f, 0f, inRect.width - 16f, scrollViewHeight + 50f);
 
             TabDrawer.DrawTabs(new Rect(0f, 32f, viewRect.width, Text.LineHeight), tabs);
             options.BeginScrollViewEx(inRect, ref scrollPosition, viewRect);
 
-            if (selectedTab == Tab.biotech) DrawBiotech(options);
-            else if (selectedTab == Tab.anomaly) DrawAnomaly(options);
-            else DrawIdeology(options);
+            if (selectedTab == Tab.biotech)
+            {
+                DrawBiotech(options);
+            }
+            else if (selectedTab == Tab.anomaly)
+            {
+                DrawAnomaly(options);
+            }
+            else
+            {
+                DrawIdeology(options);
+            }
 
             options.EndScrollView(ref viewRect);
             scrollViewHeight = viewRect.height;

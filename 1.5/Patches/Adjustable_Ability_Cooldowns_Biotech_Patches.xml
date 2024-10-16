@@ -4,11 +4,15 @@
 		<mods>
 			<li>ludeon.rimworld.biotech</li>
 		</mods>
-	</Operation>
-	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/AbilityDef[defName="Coagulate"]/verbProperties/targetParams/canTargetSelf</xpath>
-		<value>
-			<canTargetSelf>true</canTargetSelf>
-		</value>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/AbilityDef[defName="Coagulate"]/verbProperties/targetParams/canTargetSelf</xpath>
+					<value>
+						<canTargetSelf>true</canTargetSelf>
+					</value>
+				</li>
+			</operations>
+		</match>
 	</Operation>
 </Patch>
