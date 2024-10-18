@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using Adjustable_Ability_Cooldowns.Utilities;
+using HarmonyLib;
 using RimWorld;
 using System.Text;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Adjustable_Ability_Cooldowns
     {
         private static bool Prefix(Precept_Ritual __instance, ref float __result)
         {
-            __result = Mathf.Lerp(Adjustable_Ability_Cooldowns.settings.ritualPenalty * -1 / 100, 0f, __instance.TicksSinceLastPerformed / (60000f * Adjustable_Ability_Cooldowns.settings.ritualCooldown));
+            __result = Mathf.Lerp(Ideology_Setting.ritualPenalty * -1 / 100, 0f, __instance.TicksSinceLastPerformed / (60000f * Ideology_Setting.ritualCooldown));
             return false;
         }
     }
@@ -26,7 +27,7 @@ namespace Adjustable_Ability_Cooldowns
 
         private static bool Prefix(Precept_Ritual __instance, ref string __result, StringBuilder ___tmpCompsDesc)
         {
-            float ritualCooldown = Adjustable_Ability_Cooldowns.settings.ritualCooldown;
+            float ritualCooldown = Ideology_Setting.ritualCooldown;
 
             ___tmpCompsDesc.Clear();
             if (__instance.RepeatPenaltyActive)
@@ -96,7 +97,7 @@ namespace Adjustable_Ability_Cooldowns
         }
         public static bool Prefix(Command_Ritual __instance, Rect rect, Material buttonMat, GizmoRenderParms parms, Precept_Ritual ___ritual, Texture2D ___CooldownBarTex, IntVec2 ___PenaltyIconSize)
         {
-            float ritualCooldown = Adjustable_Ability_Cooldowns.settings.ritualCooldown;
+            float ritualCooldown = Ideology_Setting.ritualCooldown;
             Texture2D ___PenaltyArrowTex = ContentFinder<Texture2D>.Get("UI/Icons/Rituals/QualityPenalty");
             float ritualCooldownTicks = 60000f * ritualCooldown;
 
@@ -122,7 +123,7 @@ namespace Adjustable_Ability_Cooldowns
     {
         private static bool Prefix(Precept_Ritual __instance, ref float __result)
         {
-            float ritualCooldown = Adjustable_Ability_Cooldowns.settings.ritualCooldown;
+            float ritualCooldown = Ideology_Setting.ritualCooldown;
             __result = __instance.TicksSinceLastPerformed / (ritualCooldown * 60000f);
             return false;
         }
@@ -133,7 +134,7 @@ namespace Adjustable_Ability_Cooldowns
     {
         private static bool Prefix(Precept_Ritual __instance, ref bool __result)
         {
-            float ritualCooldown = Adjustable_Ability_Cooldowns.settings.ritualCooldown;
+            float ritualCooldown = Ideology_Setting.ritualCooldown;
             __result = __instance.isAnytime && __instance.lastFinishedTick != -1 && __instance.def.useRepeatPenalty && __instance.TicksSinceLastPerformed < (ritualCooldown * 60000f);
             return false;
         }

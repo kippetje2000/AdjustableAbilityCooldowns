@@ -71,6 +71,10 @@
     <Compile Include="Adjustable_Ability_Cooldowns_Settings.cs" />
     <Compile Include="Patches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\AlphaGene_Settings.cs" />
+    <Compile Include="Utilities\Biotech_Setting.cs" />
+    <Compile Include="Utilities\Anomaly_Settings.cs" />
+    <Compile Include="Utilities\Ideology_Setting.cs" />
     <Compile Include="Utilities\Listing_StandardExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
