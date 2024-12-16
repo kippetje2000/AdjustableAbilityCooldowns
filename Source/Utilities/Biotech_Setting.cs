@@ -106,6 +106,6 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityFirefoampopMech = 5; //Days
             abilityResurrectionMech = 2; //Seconds
 
+        }
     }
-}
 }

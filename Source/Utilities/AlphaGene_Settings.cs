@@ -2,6 +2,7 @@
 using SettingsHelper;
 using System;
 using Verse;
+
 namespace Adjustable_Ability_Cooldowns.Utilities
 {
     public static class AlphaGene_Settings
@@ -279,57 +280,57 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         }
         public static void ResetSettingsAlphaGenes()
         {
-        //Explosions
-        abilityAG_AcidicDetonation = 12; //Hours
-        abilityAG_Detonation = 12; //Hours
-        //Mechanitor
-        abilityAG_MechConversion = 24; //Hours
-        abilityAG_BandwidthLoop = 24; //Hours
-        abilityAG_SummonTempBandwidth = 70; //Days
-        abilityAG_SummonMilitor = 24; //Hours
-        abilityAG_SummonTesseron = 24; //Hours
-        abilityAG_SummonCentipede = 24; //Hours
-        //Mineral
-        abilityAG_ReactiveArmourA = 5; //Seconds
-        abilityAG_MineralOverdriveA = 24; //Hours
-        abilityAG_MineralShock = 1; //Seconds
-        //PocketPlane
-        abilityAG_NereidPocketPlane = 15; //Seconds
-        abilityAG_DestroyPocketPlane = 15; //Seconds
-        abilityAG_TeleportItemsPocketPlane = 5; //Seconds
-        //Projectiles
-        abilityAG_Zap = 6; //Hours
-        abilityAG_GreaterFireSpew = 5; //Days
-        abilityAG_GreaterAcidicVomit = 5; //Days
-        abilityAG_PetrifyingGaze = 5; //Days
-        abilityAG_Web = 3; //Hours
-        abilityAG_InsanityBlast = 24; //Hours
-        abilityAG_SterilizingBreath = 24; //Hours
-        abilityAG_BansheeScream = 12; //Hours
-        abilityAG_FreezingBreath = 24; //Hours
-        abilityAG_NoxiousBreath = 24; //Hours
-        //Stingers
-        abilityAG_InsectStinger = 4; //Days
-        abilityAG_InsectStingerEndogenes = 4; //Days
-        abilityAG_ParasiticStinger = 2; //Days
-        abilityAG_ParasiticStingerEndogenes = 2; //Days
-        //Summons
-        abilityAG_MinorSummon = 24; //Hours
-        abilityAG_Summon = 24; //Hours
-        abilityAG_MajorSummon = 24; //Hours
-        //Misc
-        abilityAG_WingPoweredJump = 40; //Seconds
-        abilityAG_UnstableMutation = 24; //Hours
-        abilityAG_InsectRally = 12; //Hours
-        abilityAG_UnstableMind = 24; //Hours
-        abilityAG_DevourBrains = 24; //Hours
-        abilityAG_GeneSyphon = 24; //Hours
-        abilityAG_TailGrapple = 100; //Seconds
-        abilityAG_UnstableRegeneration = 4; //Hours
-        abilityAG_AdaptiveBiology = 24; //Hours
-        abilityAG_SuperAdaptiveBiology = 24; //Hours
-        abilityAG_PsychicAbsorption = 5; //Seconds
-        abilityAG_SpeedBurst = 5; //Hours
+            //Explosions
+            abilityAG_AcidicDetonation = 12; //Hours
+            abilityAG_Detonation = 12; //Hours
+                                       //Mechanitor
+            abilityAG_MechConversion = 24; //Hours
+            abilityAG_BandwidthLoop = 24; //Hours
+            abilityAG_SummonTempBandwidth = 70; //Days
+            abilityAG_SummonMilitor = 24; //Hours
+            abilityAG_SummonTesseron = 24; //Hours
+            abilityAG_SummonCentipede = 24; //Hours
+                                            //Mineral
+            abilityAG_ReactiveArmourA = 5; //Seconds
+            abilityAG_MineralOverdriveA = 24; //Hours
+            abilityAG_MineralShock = 1; //Seconds
+                                        //PocketPlane
+            abilityAG_NereidPocketPlane = 15; //Seconds
+            abilityAG_DestroyPocketPlane = 15; //Seconds
+            abilityAG_TeleportItemsPocketPlane = 5; //Seconds
+                                                    //Projectiles
+            abilityAG_Zap = 6; //Hours
+            abilityAG_GreaterFireSpew = 5; //Days
+            abilityAG_GreaterAcidicVomit = 5; //Days
+            abilityAG_PetrifyingGaze = 5; //Days
+            abilityAG_Web = 3; //Hours
+            abilityAG_InsanityBlast = 24; //Hours
+            abilityAG_SterilizingBreath = 24; //Hours
+            abilityAG_BansheeScream = 12; //Hours
+            abilityAG_FreezingBreath = 24; //Hours
+            abilityAG_NoxiousBreath = 24; //Hours
+                                          //Stingers
+            abilityAG_InsectStinger = 4; //Days
+            abilityAG_InsectStingerEndogenes = 4; //Days
+            abilityAG_ParasiticStinger = 2; //Days
+            abilityAG_ParasiticStingerEndogenes = 2; //Days
+                                                     //Summons
+            abilityAG_MinorSummon = 24; //Hours
+            abilityAG_Summon = 24; //Hours
+            abilityAG_MajorSummon = 24; //Hours
+                                        //Misc
+            abilityAG_WingPoweredJump = 40; //Seconds
+            abilityAG_UnstableMutation = 24; //Hours
+            abilityAG_InsectRally = 12; //Hours
+            abilityAG_UnstableMind = 24; //Hours
+            abilityAG_DevourBrains = 24; //Hours
+            abilityAG_GeneSyphon = 24; //Hours
+            abilityAG_TailGrapple = 100; //Seconds
+            abilityAG_UnstableRegeneration = 4; //Hours
+            abilityAG_AdaptiveBiology = 24; //Hours
+            abilityAG_SuperAdaptiveBiology = 24; //Hours
+            abilityAG_PsychicAbsorption = 5; //Seconds
+            abilityAG_SpeedBurst = 5; //Hours
         }
     }
 }

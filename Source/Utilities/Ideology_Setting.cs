@@ -7,6 +7,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
 {
     public static class Ideology_Setting
     {
+        //Ritual
         public static float ritualPenalty = 95;
         public static float ritualCooldown = 20;
 
@@ -35,10 +36,9 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static float abilityMarksmanCommand = 3; //Days
 
         public static bool separatedAblilities = false;
-
         public static void ExposeDataIdeology()
         {
-            //Ritual penalty
+            //Ritual
             Scribe_Values.Look(ref ritualPenalty, "ritualPenalty");
             Scribe_Values.Look(ref ritualCooldown, "ritualCooldown");
 

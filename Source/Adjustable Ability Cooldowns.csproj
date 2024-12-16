@@ -76,6 +76,8 @@
     <Compile Include="Utilities\Anomaly_Settings.cs" />
     <Compile Include="Utilities\Ideology_Setting.cs" />
     <Compile Include="Utilities\Listing_StandardExtensions.cs" />
+    <Compile Include="Utilities\Example_Settings.cs" />
+    <Compile Include="Utilities\VFETribals_Settings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

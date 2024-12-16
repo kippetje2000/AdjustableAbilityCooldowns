@@ -34,7 +34,7 @@ namespace Adjustable_Ability_Cooldowns
         private Vector2 scrollPosition = new Vector2(0f, 0f);
         public float scrollViewHeight;
         public static Tab selectedTab = Tab.ideology;
-        public enum Tab { ideology, biotech, anomaly, alphagenes};
+        public enum Tab { ideology, biotech, anomaly, alphagenes, vfe };
 
         public Adjustable_Ability_Cooldowns(ModContentPack content) : base(content)
         {
@@ -61,6 +61,10 @@ namespace Adjustable_Ability_Cooldowns
             {
                 tabs.Add(new TabRecord("AlphaGenes", delegate { selectedTab = Tab.alphagenes; }, selectedTab == Tab.alphagenes));
             }
+            if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vanillafactionsexpanded.core") != null)
+            {
+                tabs.Add(new TabRecord("VFE", delegate { selectedTab = Tab.vfe; }, selectedTab == Tab.vfe));
+            }
 
             GUI.BeginGroup(inRect);
             Listing_Standard options = new Listing_Standard();
@@ -80,6 +84,13 @@ namespace Adjustable_Ability_Cooldowns
             else if (selectedTab == Tab.alphagenes)
             {
                 AlphaGene_Settings.DrawAlphaGenes(options);
+            }
+            else if (selectedTab == Tab.vfe)
+            {
+                if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
+                {
+                    VFETribals_Settings.DrawVFETribals(options);
+                }
             }
             else
             {
@@ -124,6 +135,10 @@ namespace Adjustable_Ability_Cooldowns
             {
                 AlphaGene_Settings.ApplySettingAlphaGenes();
             }
+            if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
+            {
+                VFETribals_Settings.ApplySettingVFETribals();
+            }
         }
 
         private static void ResetSettings()
@@ -142,7 +157,10 @@ namespace Adjustable_Ability_Cooldowns
             {
                 AlphaGene_Settings.ResetSettingsAlphaGenes();
             }
-
+            if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
+            {
+                VFETribals_Settings.ResetSettingsVFETribals();
+            }
             ApplySettings();
         }
 
