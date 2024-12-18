@@ -24,6 +24,14 @@ namespace Adjustable_Ability_Cooldowns
             {
                 AlphaGene_Settings.ExposeDataAlphaGenes();
             }
+            if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
+            {
+                VFETribals_Settings.ExposeDataVFETribals();
+            }
+            if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
+            {
+                VME_Settings.ExposeDataVME();
+            }
             base.ExposeData();
         }
     }
@@ -90,6 +98,11 @@ namespace Adjustable_Ability_Cooldowns
                 if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
                 {
                     VFETribals_Settings.DrawVFETribals(options);
+
+                }
+                if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
+                {
+                    VME_Settings.DrawVME(options);
                 }
             }
             else
@@ -139,6 +152,10 @@ namespace Adjustable_Ability_Cooldowns
             {
                 VFETribals_Settings.ApplySettingVFETribals();
             }
+            if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
+            {
+                VME_Settings.ApplySettingVME();
+            }
         }
 
         private static void ResetSettings()
@@ -160,6 +177,10 @@ namespace Adjustable_Ability_Cooldowns
             if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
             {
                 VFETribals_Settings.ResetSettingsVFETribals();
+            }
+            if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
+            {
+                VME_Settings.ResetSettingsVME();
             }
             ApplySettings();
         }

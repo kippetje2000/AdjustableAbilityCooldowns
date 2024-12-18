@@ -35,6 +35,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static float abilityRevenantInvisibility = 6; //Hours
         public static float abilityVoidTerror = 3; //Hours
 
+
         public static void ExposeDataAnomaly()
         {
             //Rituals

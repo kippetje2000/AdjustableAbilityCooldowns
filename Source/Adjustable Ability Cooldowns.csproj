@@ -78,6 +78,7 @@
     <Compile Include="Utilities\Listing_StandardExtensions.cs" />
     <Compile Include="Utilities\Example_Settings.cs" />
     <Compile Include="Utilities\VFETribals_Settings.cs" />
+    <Compile Include="Utilities\VME_Settings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

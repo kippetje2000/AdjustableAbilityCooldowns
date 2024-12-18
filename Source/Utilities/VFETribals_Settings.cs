@@ -23,8 +23,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         }
         public static void ApplySettingVFETribals()
         {
-            int tickRitualVFET_TribalGathering = Convert.ToInt32(ritualVFET_TribalGathering * 2500 + 1);
-            DefDatabase<AbilityGroupDef>.GetNamed("VFET_TribalGathering").cooldownTicks = tickRitualVFET_TribalGathering;
+            DefDatabase<AbilityGroupDef>.GetNamed("VFET_TribalGathering").cooldownTicks = Convert.ToInt32(ritualVFET_TribalGathering * 2500 + 1);
         }
         public static void ResetSettingsVFETribals()
         {

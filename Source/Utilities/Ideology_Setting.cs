@@ -26,6 +26,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static float abilityCounsel = 3; //Days
 
         //Multirole
+        public static float abilityRoleMultiRole = 3; //Days
         public static float abilityAnimalCalm = 20; //Days
         public static float abilityImmunityDrive = 3; //Days
         public static float abilityBerserkTrance = 3; //Days
@@ -35,7 +36,8 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static float abilityResearchCommand = 3; //Days
         public static float abilityMarksmanCommand = 3; //Days
 
-        public static bool separatedAblilities = false;
+        public static bool separatedAblilitiesIdeology = false;
+        public static bool notificationOnCooldownCompleteIdeology = true;
         public static void ExposeDataIdeology()
         {
             //Ritual
@@ -57,6 +59,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             Scribe_Values.Look(ref abilityCounsel, "abilityCounsel");
 
             //MultiRole abilities
+            Scribe_Values.Look(ref abilityRoleMultiRole, "abilityRoleMultiRole");
             Scribe_Values.Look(ref abilityAnimalCalm, "abilityAnimalCalm");
             Scribe_Values.Look(ref abilityImmunityDrive, "abilityImmunityDrive");
             Scribe_Values.Look(ref abilityBerserkTrance, "abilityBerserkTrance");
@@ -66,15 +69,16 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             Scribe_Values.Look(ref abilityResearchCommand, "abilityResearchCommand");
             Scribe_Values.Look(ref abilityMarksmanCommand, "abilityMarksmanCommand");
 
-            Scribe_Values.Look(ref separatedAblilities, "separatedAblilities", false);
+            Scribe_Values.Look(ref separatedAblilitiesIdeology, "separatedAblilities", false);
+            Scribe_Values.Look(ref notificationOnCooldownCompleteIdeology, "notificationOnCooldownComplete", true);
         }
         public static void DrawIdeology(Listing_Standard listing_Standard)
         {
-
             //ritual penalty
             listing_Standard.Label("Ritual");
             listing_Standard.AddLabeledSlider("Percentage for the Ritual Penalty (" + ritualPenalty + ") %", ref ritualPenalty, 0, 100, "0", "100", 1f);
             listing_Standard.AddLabeledSlider("Cooldown for the Rituals (" + ritualCooldown + ") Days", ref ritualCooldown, 0, 20, "0", "20", 0.5f);
+            listing_Standard.Label("This works for all rituals including rituals added by other mods");
             //Abilities
             listing_Standard.AddHorizontalLine();
             listing_Standard.Label("Leader abilities");
@@ -83,12 +87,14 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             listing_Standard.AddLabeledSlider("Cooldown for the ability: WorkDrive (" + abilityWorkDrive + ") Days", ref abilityWorkDrive, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: CombatCommand (" + abilityCombatCommand + ") Days", ref abilityCombatCommand, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddHorizontalLine();
+
             listing_Standard.Label("Moral Guide abilities");
             listing_Standard.AddLabeledSlider("Cooldown for the ability: Convert (" + abilityConvert + ") Days", ref abilityConvert, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: PreachHealth (" + abilityPreachHealth + ") Days", ref abilityPreachHealth, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: Reassure (" + abilityReassure + ") Days", ref abilityReassure, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: Counsel (" + abilityCounsel + ") Days", ref abilityCounsel, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddHorizontalLine();
+
             listing_Standard.Label("Specialist abilities");
             listing_Standard.AddLabeledSlider("Cooldown for the ability: AnimalCalm (" + abilityAnimalCalm + ") Days", ref abilityAnimalCalm, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: ImmunityDrive (" + abilityImmunityDrive + ") Days", ref abilityImmunityDrive, 0, 20, "0", "20", 0.5f);
@@ -99,20 +105,24 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             listing_Standard.AddLabeledSlider("Cooldown for the ability: ResearchCommand (" + abilityResearchCommand + ") Days", ref abilityResearchCommand, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: MarksmanCommand (" + abilityMarksmanCommand + ") Days", ref abilityMarksmanCommand, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddHorizontalLine();
+
             listing_Standard.Label("More options");
-            listing_Standard.AddLabeledCheckbox("Use ablilities separately from each other", ref separatedAblilities);
-            listing_Standard.Label("If option above is off, Sliders from the Leader abilities and Moral Guide abilities will no longer work and the sliders below will allow you to adjust the cooldown of those roles");
+            listing_Standard.AddLabeledCheckbox("Get notification when cooldown of ability is complete", ref notificationOnCooldownCompleteIdeology);
+            listing_Standard.AddLabeledCheckbox("Use ablilities separately from each other", ref separatedAblilitiesIdeology);
+            listing_Standard.Label("If option above is off, Sliders from the Leader, Moralist and Specialist role abilities will no longer work and the sliders below will allow you to adjust the cooldown of those roles");
             listing_Standard.AddLabeledSlider("Cooldown for the role: Leader (" + abilityRoleLeader + ") Days", ref abilityRoleLeader, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddLabeledSlider("Cooldown for the role: Moralist (" + abilityRoleMoralist + ") Days", ref abilityRoleMoralist, 0, 20, "0", "20", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the role: Specialist (" + abilityRoleMultiRole + ") Days", ref abilityRoleMultiRole, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddHorizontalLine();
+
             listing_Standard.Label("/n");
             listing_Standard.Label("/n");
         }
         public static void ApplySettingIdeology()
         {
             //Leader abilities
-            int tickRoleMoralist = Convert.ToInt32(abilityRoleMoralist * 60000 + 1);
-            DefDatabase<AbilityGroupDef>.GetNamed("Moralist").cooldownTicks = tickRoleMoralist;
+            DefDatabase<AbilityGroupDef>.GetNamed("Leader").cooldownTicks = Convert.ToInt32(abilityRoleLeader * 60000 + 1);
+
             int tickLeaderSpeech = Convert.ToInt32(abilityLeaderSpeech * 60000 + 1);
             DefDatabase<AbilityDef>.GetNamed("LeaderSpeech").cooldownTicksRange = new IntRange(tickLeaderSpeech, tickLeaderSpeech);
             int tickTrial = Convert.ToInt32(abilityTrial * 60000 + 1);
@@ -123,8 +133,8 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             DefDatabase<AbilityDef>.GetNamed("CombatCommand").cooldownTicksRange = new IntRange(tickCombatCommand, tickCombatCommand);
 
             //Moralist abilities
-            int tickRoleLeader = Convert.ToInt32(abilityRoleLeader * 60000 + 1);
-            DefDatabase<AbilityGroupDef>.GetNamed("Leader").cooldownTicks = tickRoleLeader;
+            DefDatabase<AbilityGroupDef>.GetNamed("Moralist").cooldownTicks = Convert.ToInt32(abilityRoleMoralist * 60000 + 1);
+
             int tickConvert = Convert.ToInt32(abilityConvert * 60000 + 1);
             DefDatabase<AbilityDef>.GetNamed("Convert").cooldownTicksRange = new IntRange(tickConvert, tickConvert);
             int tickPreachHealth = Convert.ToInt32(abilityPreachHealth * 60000 + 1);
@@ -135,6 +145,8 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             DefDatabase<AbilityDef>.GetNamed("Counsel").cooldownTicksRange = new IntRange(tickCounsel, tickCounsel);
 
             //MultiRole abilities
+            DefDatabase<AbilityGroupDef>.GetNamed("MultiRole").cooldownTicks = Convert.ToInt32(abilityRoleMultiRole * 60000 + 1);
+
             int tickAnimalCalm = Convert.ToInt32(abilityAnimalCalm * 60000 + 1);
             DefDatabase<AbilityDef>.GetNamed("AnimalCalm").cooldownTicksRange = new IntRange(tickAnimalCalm, tickAnimalCalm);
             int tickImmunityDrive = Convert.ToInt32(abilityImmunityDrive * 60000 + 1);
@@ -152,7 +164,87 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             int tickMarksmanCommand = Convert.ToInt32(abilityMarksmanCommand * 60000 + 1);
             DefDatabase<AbilityDef>.GetNamed("MarksmanCommand").cooldownTicksRange = new IntRange(tickMarksmanCommand, tickMarksmanCommand);
 
-            if (separatedAblilities)
+            if (notificationOnCooldownCompleteIdeology)
+            {
+                if (separatedAblilitiesIdeology)
+                {
+                    DefDatabase<AbilityGroupDef>.GetNamed("Leader").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityGroupDef>.GetNamed("Moralist").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityGroupDef>.GetNamed("MultiRole").sendMessageOnCooldownComplete = false;
+
+                    DefDatabase<AbilityDef>.GetNamed("LeaderSpeech").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("Trial").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("WorkDrive").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("CombatCommand").sendMessageOnCooldownComplete = true;
+
+                    DefDatabase<AbilityDef>.GetNamed("Convert").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("PreachHealth").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("Reassure").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("Counsel").sendMessageOnCooldownComplete = true;
+
+                    DefDatabase<AbilityDef>.GetNamed("AnimalCalm").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("ImmunityDrive").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("BerserkTrance").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("MiningCommand").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("FarmingCommand").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("ProductionCommand").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("ResearchCommand").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityDef>.GetNamed("MarksmanCommand").sendMessageOnCooldownComplete = true;
+                }
+                else if (!separatedAblilitiesIdeology)
+                {
+                    DefDatabase<AbilityGroupDef>.GetNamed("Leader").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityGroupDef>.GetNamed("Moralist").sendMessageOnCooldownComplete = true;
+                    DefDatabase<AbilityGroupDef>.GetNamed("MultiRole").sendMessageOnCooldownComplete = true;
+
+                    DefDatabase<AbilityDef>.GetNamed("LeaderSpeech").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("Trial").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("WorkDrive").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("CombatCommand").sendMessageOnCooldownComplete = false;
+
+                    DefDatabase<AbilityDef>.GetNamed("Convert").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("PreachHealth").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("Reassure").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("Counsel").sendMessageOnCooldownComplete = false;
+
+                    DefDatabase<AbilityDef>.GetNamed("AnimalCalm").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("ImmunityDrive").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("BerserkTrance").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("MiningCommand").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("FarmingCommand").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("ProductionCommand").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("ResearchCommand").sendMessageOnCooldownComplete = false;
+                    DefDatabase<AbilityDef>.GetNamed("MarksmanCommand").sendMessageOnCooldownComplete = false;
+                }
+
+            }
+            else if (!notificationOnCooldownCompleteIdeology)
+            {
+                DefDatabase<AbilityGroupDef>.GetNamed("Leader").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityGroupDef>.GetNamed("Moralist").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityGroupDef>.GetNamed("MultiRole").sendMessageOnCooldownComplete = false;
+
+                DefDatabase<AbilityDef>.GetNamed("LeaderSpeech").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("Trial").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("WorkDrive").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("CombatCommand").sendMessageOnCooldownComplete = false;
+
+                DefDatabase<AbilityDef>.GetNamed("Convert").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("PreachHealth").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("Reassure").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("Counsel").sendMessageOnCooldownComplete = false;
+
+                DefDatabase<AbilityDef>.GetNamed("AnimalCalm").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("ImmunityDrive").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("BerserkTrance").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("MiningCommand").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("FarmingCommand").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("ProductionCommand").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("ResearchCommand").sendMessageOnCooldownComplete = false;
+                DefDatabase<AbilityDef>.GetNamed("MarksmanCommand").sendMessageOnCooldownComplete = false;
+            }
+
+            if (separatedAblilitiesIdeology)
             {
                 DefDatabase<AbilityDef>.GetNamed("LeaderSpeech").groupDef = null;
                 DefDatabase<AbilityDef>.GetNamed("Trial").groupDef = null;
@@ -207,6 +299,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityCounsel = 3; //Days
 
             //MultiRole abilities
+            abilityRoleMultiRole = 3; //Days
             abilityAnimalCalm = 20; //Days
             abilityImmunityDrive = 3; //Days
             abilityBerserkTrance = 3; //Days
@@ -216,7 +309,8 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityResearchCommand = 3; //Days
             abilityMarksmanCommand = 3; //Days
 
-            separatedAblilities = false;
+            separatedAblilitiesIdeology = false;
+            notificationOnCooldownCompleteIdeology = true;
         }
 
     }
