@@ -103,8 +103,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             listing_Standard.Gap(10);
             //Save settings
             GUI.color = Color.green;
-            bool apply = listing_Standard.ButtonText("Apply Anomaly Settings");
-            if (apply)
+            if (listing_Standard.ButtonText("Apply Anomaly Settings"))
             {
                 ApplySettingAnomaly();
                 Messages.Message("Applied Anomaly Settings", MessageTypeDefOf.NeutralEvent);
@@ -112,8 +111,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             }
             //Reset settings
             GUI.color = Color.red;
-            bool reset = listing_Standard.ButtonText("Reset Anomaly Settings");
-            if (reset)
+            if (listing_Standard.ButtonText("Reset Anomaly Settings"))
             {
                 ResetSettingsAnomaly();
                 Messages.Message("Reset Anomaly Settings", MessageTypeDefOf.NeutralEvent);

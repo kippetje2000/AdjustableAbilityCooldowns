@@ -20,6 +20,10 @@ namespace Adjustable_Ability_Cooldowns
             {
                 Anomaly_Settings.ExposeDataAnomaly();
             }
+            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.odyssey") != null)
+            {
+                Odyssey_Settings.ExposeDataOdyssey();
+            }
             if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
                 AlphaGene_Settings.ExposeDataAlphaGenes();
@@ -45,6 +49,7 @@ namespace Adjustable_Ability_Cooldowns
         public static bool SectionIdeology = false;
         public static bool SectionBiotech = false;
         public static bool SectionAnomaly = false;
+        public static bool SectionOdyssey = false;
         public static bool SectionAlphaGenes = false;
         public static bool SectionVFETribals = false;
         public static bool SectionVME = false;
@@ -116,6 +121,24 @@ namespace Adjustable_Ability_Cooldowns
                 if (SectionAnomaly)
                 {
                     Anomaly_Settings.DrawAnomaly(options);
+                }
+            }
+            //Odyssey
+            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.odyssey") != null)
+            {
+                if (SectionOdyssey)
+                    GUI.color = Color.gray;
+                else
+                    GUI.color = Color.white;
+                if (options.ButtonText("Odyssey"))
+                {
+                    SectionOdyssey = !SectionOdyssey;
+                }
+                GUI.color = Color.white;
+
+                if (SectionOdyssey)
+                {
+                    Odyssey_Settings.DrawOdyssey(options);
                 }
             }
             //Alpha Genes
@@ -208,6 +231,10 @@ namespace Adjustable_Ability_Cooldowns
             {
                 Anomaly_Settings.ApplySettingAnomaly();
             }
+            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.odyssey") != null)
+            {
+                Odyssey_Settings.ApplySettingOdyssey();
+            }
             if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
                 AlphaGene_Settings.ApplySettingAlphaGenes();
@@ -233,6 +260,10 @@ namespace Adjustable_Ability_Cooldowns
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.anomaly") != null)
             {
                 Anomaly_Settings.ResetSettingsAnomaly();
+            }
+            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.odyssey") != null)
+            {
+                Odyssey_Settings.ResetSettingsOdyssey();
             }
             if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
