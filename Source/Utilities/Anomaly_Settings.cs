@@ -190,7 +190,6 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityVoidTerror = 3; //Hours
 
             ApplySettingAnomaly();
-
         }
     }
 }

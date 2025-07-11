@@ -61,8 +61,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             listing_Standard.Gap(10);
             //Save settings
             GUI.color = Color.green;
-            bool apply = listing_Standard.ButtonText("Apply Biotech Settings");
-            if (apply)
+            if (listing_Standard.ButtonText("Apply Biotech Settings"))
             {
                 ApplySettingBiotech();
                 Messages.Message("Applied Biotech Settings", MessageTypeDefOf.NeutralEvent);
@@ -70,8 +69,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             }
             //Reset settings
             GUI.color = Color.red;
-            bool reset = listing_Standard.ButtonText("Reset Biotech Settings");
-            if (reset)
+            if (listing_Standard.ButtonText("Reset Biotech Settings"))
             {
                 ResetSettingsBiotech();
                 Messages.Message("Reset Biotech Settings", MessageTypeDefOf.NeutralEvent);
@@ -127,6 +125,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityFirefoampopMech = 5; //Days
             abilityResurrectionMech = 2; //Seconds
 
+            ApplySettingBiotech();
         }
     }
 }

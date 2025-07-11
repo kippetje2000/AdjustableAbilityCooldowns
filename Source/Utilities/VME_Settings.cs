@@ -128,8 +128,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             listing_Standard.Gap(10);
             //Save settings
             GUI.color = Color.green;
-            bool apply = listing_Standard.ButtonText("Apply Memes and Structures Settings");
-            if (apply)
+            if (listing_Standard.ButtonText("Apply Memes and Structures Settings"))
             {
                 ApplySettingVME();
                 Messages.Message("Applied Memes and Structures Settings", MessageTypeDefOf.NeutralEvent);
@@ -137,8 +136,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             }
             //Reset settings
             GUI.color = Color.red;
-            bool reset = listing_Standard.ButtonText("Reset Memes and Structures Settings");
-            if (reset)
+            if (listing_Standard.ButtonText("Reset Memes and Structures Settings"))
             {
                 ResetSettingsVME();
                 Messages.Message("Reset Memes and Structures Settings", MessageTypeDefOf.NeutralEvent);

@@ -25,8 +25,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             listing_Standard.Gap(10);
             //Save settings
             GUI.color = Color.green;
-            bool apply = listing_Standard.ButtonText("Apply VFE Tribal Settings");
-            if (apply)
+            if (listing_Standard.ButtonText("Apply VFE Tribal Settings"))
             {
                 ApplySettingVFETribals();
                 Messages.Message("Applied VFE Tribal settings", MessageTypeDefOf.NeutralEvent);
@@ -34,8 +33,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             }
             //Reset settings
             GUI.color = Color.red;
-            bool reset = listing_Standard.ButtonText("Reset VFE Tribal Settings");
-            if (reset)
+            if (listing_Standard.ButtonText("Reset VFE Tribal Settings"))
             {
                 ResetSettingsVFETribals();
                 Messages.Message("Reset VFE Tribal settings", MessageTypeDefOf.NeutralEvent);

@@ -57,7 +57,6 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             }
             listing_Standard.Gap(10);
 
-
         }
         public static void ApplySettingOdyssey()
         {
