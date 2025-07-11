@@ -30,3 +30,4 @@ G:\Steam\steamapps\common\RimWorld\Mods\Adjustable Ability Cooldowns\Source\obj\
 G:\Steam\steamapps\common\RimWorld\Mods\Adjustable Ability Cooldowns\Source\obj\Debug\Adjustable Ability Cooldowns.csproj.CopyComplete
 G:\Steam\steamapps\common\RimWorld\Mods\Adjustable Ability Cooldowns\Source\obj\Debug\Adjustable Ability Cooldowns.dll
 G:\Steam\steamapps\common\RimWorld\Mods\Adjustable Ability Cooldowns\1.5\Assemblies\Adjustable Ability Cooldowns.dll
+G:\Steam\steamapps\common\RimWorld\Mods\Adjustable Ability Cooldowns\1.6\Assemblies\Adjustable Ability Cooldowns.dll

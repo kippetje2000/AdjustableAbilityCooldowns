@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using SettingsHelper;
 using System;
+using UnityEngine;
 using Verse;
 
 namespace Adjustable_Ability_Cooldowns.Utilities
@@ -124,8 +125,26 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             listing_Standard.AddLabeledSlider("Cooldown for the role: Exalted Leader (" + abilityRoleVME_ExaltedLeader + ") Days", ref abilityRoleVME_ExaltedLeader, 0, 15, "0", "15", 1f);
             listing_Standard.AddHorizontalLine();
 
-            listing_Standard.Label("/n");
-            listing_Standard.Label("/n");
+            listing_Standard.Gap(10);
+            //Save settings
+            GUI.color = Color.green;
+            bool apply = listing_Standard.ButtonText("Apply Memes and Structures Settings");
+            if (apply)
+            {
+                ApplySettingVME();
+                Messages.Message("Applied Memes and Structures Settings", MessageTypeDefOf.NeutralEvent);
+
+            }
+            //Reset settings
+            GUI.color = Color.red;
+            bool reset = listing_Standard.ButtonText("Reset Memes and Structures Settings");
+            if (reset)
+            {
+                ResetSettingsVME();
+                Messages.Message("Reset Memes and Structures Settings", MessageTypeDefOf.NeutralEvent);
+
+            }
+            listing_Standard.Gap(10);
         }
         public static void ApplySettingVME()
         {
@@ -221,11 +240,13 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         }
         public static void ResetSettingsVME()
         {
+            abilityRoleVME_ExaltedLeader = 10; //Days
             abilityVME_LeaderConversionRitual = 8; //Days
             abilityVME_LeaderConvert = 10; //Days
             abilityVME_LeaderPreachHealth = 10; //Days
             abilityVME_LeaderReassure = 10; //Days
             abilityVME_LeaderCounsel = 10; //Days
+
             abilityVME_EnforceCompliance = 24; //Hours
             abilityVME_StrengthenFlame = 3; //Hours
             abilityVME_HarvestBodyParts = 24; //Hours
@@ -237,6 +258,9 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityVME_CallTradeCaravan = 5; //Days
 
             separatedAblilitiesVME = false;
+            notificationOnCooldownCompleteVME = true;
+
+            ApplySettingVME();
 
         }
     }

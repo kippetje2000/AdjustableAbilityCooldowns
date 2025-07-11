@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using SettingsHelper;
 using System;
+using UnityEngine;
 using Verse;
 
 namespace Adjustable_Ability_Cooldowns.Utilities
@@ -34,7 +35,6 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static float abilityMetalbloodInjection = 6; //Hours
         public static float abilityRevenantInvisibility = 6; //Hours
         public static float abilityVoidTerror = 3; //Hours
-
 
         public static void ExposeDataAnomaly()
         {
@@ -99,8 +99,27 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             listing_Standard.AddLabeledSlider("Cooldown for the ability: RevenantInvisibility (" + abilityRevenantInvisibility + ") Hours", ref abilityRevenantInvisibility, 0, 24, "0", "24", 0.5f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: VoidTerror (" + abilityVoidTerror + ") Hours", ref abilityVoidTerror, 0, 24, "0", "24", 0.5f);
             listing_Standard.AddHorizontalLine();
-            listing_Standard.Label("/n");
-            listing_Standard.Label("/n");
+
+            listing_Standard.Gap(10);
+            //Save settings
+            GUI.color = Color.green;
+            bool apply = listing_Standard.ButtonText("Apply Anomaly Settings");
+            if (apply)
+            {
+                ApplySettingAnomaly();
+                Messages.Message("Applied Anomaly Settings", MessageTypeDefOf.NeutralEvent);
+
+            }
+            //Reset settings
+            GUI.color = Color.red;
+            bool reset = listing_Standard.ButtonText("Reset Anomaly Settings");
+            if (reset)
+            {
+                ResetSettingsAnomaly();
+                Messages.Message("Reset Anomaly Settings", MessageTypeDefOf.NeutralEvent);
+
+            }
+            listing_Standard.Gap(10);
         }
         public static void ApplySettingAnomaly()
         {
@@ -171,6 +190,8 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityMetalbloodInjection = 6; //Hours
             abilityRevenantInvisibility = 6; //Hours
             abilityVoidTerror = 3; //Hours
+
+            ApplySettingAnomaly();
 
         }
     }

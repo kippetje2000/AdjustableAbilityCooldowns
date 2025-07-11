@@ -33,6 +33,8 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         {
             abilityExampleData = 1; //Hours
             ritualExampleData = 1; //days
+
+            ApplySettingExample();
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Adjustable_Ability_Cooldowns.Utilities;
 using HarmonyLib;
 using RimWorld;
-using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -11,6 +10,7 @@ namespace Adjustable_Ability_Cooldowns
     {
         public override void ExposeData()
         {
+            base.ExposeData();
             Ideology_Setting.ExposeDataIdeology();
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
@@ -32,7 +32,7 @@ namespace Adjustable_Ability_Cooldowns
             {
                 VME_Settings.ExposeDataVME();
             }
-            base.ExposeData();
+
         }
     }
 
@@ -41,8 +41,13 @@ namespace Adjustable_Ability_Cooldowns
         public static Adjustable_Ability_Cooldowns_Settings settings;
         private Vector2 scrollPosition = new Vector2(0f, 0f);
         public float scrollViewHeight;
-        public static Tab selectedTab = Tab.ideology;
-        public enum Tab { ideology, biotech, anomaly, alphagenes, vfe };
+
+        public static bool SectionIdeology = false;
+        public static bool SectionBiotech = false;
+        public static bool SectionAnomaly = false;
+        public static bool SectionAlphaGenes = false;
+        public static bool SectionVFETribals = false;
+        public static bool SectionVME = false;
 
         public Adjustable_Ability_Cooldowns(ModContentPack content) : base(content)
         {
@@ -52,62 +57,120 @@ namespace Adjustable_Ability_Cooldowns
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            List<TabRecord> tabs = new List<TabRecord>
-            {
-                new TabRecord("Ideology", delegate { selectedTab = Tab.ideology; }, selectedTab == Tab.ideology)
-            };
-            //DLCs and Mods tabs
-            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
-            {
-                tabs.Add(new TabRecord("Biotech", delegate { selectedTab = Tab.biotech; }, selectedTab == Tab.biotech));
-            }
-            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.anomaly") != null)
-            {
-                tabs.Add(new TabRecord("Anomaly", delegate { selectedTab = Tab.anomaly; }, selectedTab == Tab.anomaly));
-            }
-            if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
-            {
-                tabs.Add(new TabRecord("AlphaGenes", delegate { selectedTab = Tab.alphagenes; }, selectedTab == Tab.alphagenes));
-            }
-            if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vanillafactionsexpanded.core") != null)
-            {
-                tabs.Add(new TabRecord("VFE", delegate { selectedTab = Tab.vfe; }, selectedTab == Tab.vfe));
-            }
-
             GUI.BeginGroup(inRect);
             Listing_Standard options = new Listing_Standard();
             Rect viewRect = new Rect(0f, 0f, inRect.width - 16f, scrollViewHeight + 50f);
 
-            TabDrawer.DrawTabs(new Rect(0f, 32f, viewRect.width, Text.LineHeight), tabs);
             options.BeginScrollViewEx(inRect, ref scrollPosition, viewRect);
 
-            if (selectedTab == Tab.biotech)
+            //Ideology
+            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.ideology") != null)
             {
-                Biotech_Setting.DrawBiotech(options);
+                if (SectionIdeology)
+                    GUI.color = Color.gray;
+                else
+                    GUI.color = Color.white;
+
+                if (options.ButtonText("Ideology"))
+                {
+                    SectionIdeology = !SectionIdeology;
+                }
+                GUI.color = Color.white;
+
+                if (SectionIdeology)
+                {
+                    Ideology_Setting.DrawIdeology(options);
+                }
             }
-            else if (selectedTab == Tab.anomaly)
+            //Biotech
+            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
-                Anomaly_Settings.DrawAnomaly(options);
+                if (SectionBiotech)
+                    GUI.color = Color.gray;
+                else
+                    GUI.color = Color.white;
+                if (options.ButtonText("Biotech"))
+                {
+                    SectionBiotech = !SectionBiotech;
+                }
+                GUI.color = Color.white;
+
+                if (SectionBiotech)
+                {
+                    Biotech_Setting.DrawBiotech(options);
+                }
             }
-            else if (selectedTab == Tab.alphagenes)
+            //Anomaly
+            if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.anomaly") != null)
             {
-                AlphaGene_Settings.DrawAlphaGenes(options);
+                if (SectionAnomaly)
+                    GUI.color = Color.gray;
+                else
+                    GUI.color = Color.white;
+                if (options.ButtonText("Anomaly"))
+                {
+                    SectionAnomaly = !SectionAnomaly;
+                }
+                GUI.color = Color.white;
+
+                if (SectionAnomaly)
+                {
+                    Anomaly_Settings.DrawAnomaly(options);
+                }
             }
-            else if (selectedTab == Tab.vfe)
+            //Alpha Genes
+            if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
-                if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
+                if (SectionAlphaGenes)
+                    GUI.color = Color.gray;
+                else
+                    GUI.color = Color.white;
+                if (options.ButtonText("AlphaGenes"))
+                {
+                    SectionAlphaGenes = !SectionAlphaGenes;
+                }
+                GUI.color = Color.white;
+
+                if (SectionAlphaGenes)
+                {
+                    AlphaGene_Settings.DrawAlphaGenes(options);
+                }
+            }
+            //Vanilla Factions Expanded - Tribals
+            if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
+            {
+                if (SectionVFETribals)
+                    GUI.color = Color.gray;
+                else
+                    GUI.color = Color.white;
+                if (options.ButtonText("Vanilla Factions Expanded - Tribals"))
+                {
+                    SectionVFETribals = !SectionVFETribals;
+                }
+                GUI.color = Color.white;
+
+                if (SectionVFETribals)
                 {
                     VFETribals_Settings.DrawVFETribals(options);
-
                 }
-                if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
+            }
+            //Vanilla Ideology Expanded - Memes and Structures
+            if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
+            {
+                if (SectionVME)
+                    GUI.color = Color.gray;
+                else
+                    GUI.color = Color.white;
+                if (options.ButtonText("Vanilla Ideology Expanded - Memes and Structures"))
+                {
+                    SectionVME = !SectionVME;
+                }
+                GUI.color = Color.white;
+
+                if (SectionVME)
                 {
                     VME_Settings.DrawVME(options);
                 }
-            }
-            else
-            {
-                Ideology_Setting.DrawIdeology(options);
             }
 
             options.EndScrollView(ref viewRect);
@@ -115,21 +178,22 @@ namespace Adjustable_Ability_Cooldowns
             GUI.EndGroup();
 
             //Save settings
-            Rect applyButton = inRect.BottomPart(0.1f).LeftPart(0.1f);
-            bool apply = Widgets.ButtonText(applyButton, "Apply Settings", true, true, true);
-            if (apply)
+            GUI.color = Color.green;
+            if (Widgets.ButtonText(inRect.BottomPart(0.1f).LeftPart(0.1f), "Apply All Settings", true, true, true))
             {
                 Adjustable_Ability_Cooldowns.ApplySettings();
+                Messages.Message("Applied all settings", MessageTypeDefOf.NeutralEvent);
+
             }
             //Reset settings
-            Rect resetButton = inRect.BottomPart(0.1f).RightPart(0.1f);
-            bool reset = Widgets.ButtonText(resetButton, "Reset Settings", true, true, true);
-            if (reset)
+            GUI.color = Color.red;
+            if (Widgets.ButtonText(inRect.BottomPart(0.1f).RightPart(0.1f), "Reset All Settings", true, true, true))
             {
                 Adjustable_Ability_Cooldowns.ResetSettings();
+                Messages.Message("Reset all settings", MessageTypeDefOf.NeutralEvent);
             }
+            GUI.color = Color.white;
 
-            base.DoSettingsWindowContents(inRect);
         }
 
         private static void ApplySettings()
@@ -182,7 +246,6 @@ namespace Adjustable_Ability_Cooldowns
             {
                 VME_Settings.ResetSettingsVME();
             }
-            ApplySettings();
         }
 
         public override string SettingsCategory()

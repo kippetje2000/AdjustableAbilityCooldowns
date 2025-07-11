@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using SettingsHelper;
 using System;
+using UnityEngine;
 using Verse;
 
 namespace Adjustable_Ability_Cooldowns.Utilities
@@ -57,6 +58,26 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             listing_Standard.AddLabeledSlider("Cooldown for the ability: ResurrectionMech (" + abilityResurrectionMech + ") Seconds", ref abilityResurrectionMech, 0, 60, "0", "60", 1);
             listing_Standard.AddHorizontalLine();
 
+            listing_Standard.Gap(10);
+            //Save settings
+            GUI.color = Color.green;
+            bool apply = listing_Standard.ButtonText("Apply Biotech Settings");
+            if (apply)
+            {
+                ApplySettingBiotech();
+                Messages.Message("Applied Biotech Settings", MessageTypeDefOf.NeutralEvent);
+
+            }
+            //Reset settings
+            GUI.color = Color.red;
+            bool reset = listing_Standard.ButtonText("Reset Biotech Settings");
+            if (reset)
+            {
+                ResetSettingsBiotech();
+                Messages.Message("Reset Biotech Settings", MessageTypeDefOf.NeutralEvent);
+
+            }
+            listing_Standard.Gap(10);
         }
         public static void ApplySettingBiotech()
         {

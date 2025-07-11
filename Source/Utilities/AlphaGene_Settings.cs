@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using SettingsHelper;
 using System;
+using UnityEngine;
 using Verse;
 
 namespace Adjustable_Ability_Cooldowns.Utilities
@@ -178,8 +179,26 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             listing_Standard.AddLabeledSlider("Cooldown for the ability: Psychic absorption (" + abilityAG_PsychicAbsorption + ") Seconds", ref abilityAG_PsychicAbsorption, 0, 60, "0", "60", 1);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: Speed burst (" + abilityAG_SpeedBurst + ") Hours", ref abilityAG_SpeedBurst, 0, 24, "0", "24", 0.5f);
             listing_Standard.AddHorizontalLine();
-            listing_Standard.Label("/n");
-            listing_Standard.Label("/n");
+
+            listing_Standard.Gap(10);
+            //Save settings
+            GUI.color = Color.green;
+            bool apply = listing_Standard.ButtonText("Apply Alpha Genes Settings");
+            if (apply)
+            {
+                ApplySettingAlphaGenes();
+                Messages.Message("Applied Alpha Genes Settings", MessageTypeDefOf.NeutralEvent);
+            }
+            //Reset settings
+            GUI.color = Color.red;
+            bool reset = listing_Standard.ButtonText("Reset Alpha Genes Settings");
+            if (reset)
+            {
+                ResetSettingsAlphaGenes();
+                Messages.Message("Reset Alpha Genes Settings", MessageTypeDefOf.NeutralEvent);
+
+            }
+            listing_Standard.Gap(10);
         }
         public static void ApplySettingAlphaGenes()
         {
@@ -331,6 +350,8 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityAG_SuperAdaptiveBiology = 24; //Hours
             abilityAG_PsychicAbsorption = 5; //Seconds
             abilityAG_SpeedBurst = 5; //Hours
+
+            ApplySettingAlphaGenes();
         }
     }
 }

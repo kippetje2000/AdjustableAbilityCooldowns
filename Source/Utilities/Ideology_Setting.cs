@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using SettingsHelper;
 using System;
+using UnityEngine;
 using Verse;
 
 namespace Adjustable_Ability_Cooldowns.Utilities
@@ -115,8 +116,26 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             listing_Standard.AddLabeledSlider("Cooldown for the role: Specialist (" + abilityRoleMultiRole + ") Days", ref abilityRoleMultiRole, 0, 20, "0", "20", 0.5f);
             listing_Standard.AddHorizontalLine();
 
-            listing_Standard.Label("/n");
-            listing_Standard.Label("/n");
+            listing_Standard.Gap(10);
+            //Save settings
+            GUI.color = Color.green;
+            bool apply = listing_Standard.ButtonText("Apply Ideology Settings");
+            if (apply)
+            {
+                ApplySettingIdeology();
+                Messages.Message("Applied Ideology Settings", MessageTypeDefOf.NeutralEvent);
+
+            }
+            //Reset settings
+            GUI.color = Color.red;
+            bool reset = listing_Standard.ButtonText("Reset Ideology Settings");
+            if (reset)
+            {
+                ResetSettingsIdeology();
+                Messages.Message("Reset Ideology Settings", MessageTypeDefOf.NeutralEvent);
+
+            }
+            listing_Standard.Gap(10);
         }
         public static void ApplySettingIdeology()
         {
@@ -311,6 +330,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
 
             separatedAblilitiesIdeology = false;
             notificationOnCooldownCompleteIdeology = true;
+            ApplySettingIdeology();
         }
 
     }
