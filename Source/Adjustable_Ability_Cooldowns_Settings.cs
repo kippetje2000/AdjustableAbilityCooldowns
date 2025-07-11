@@ -45,11 +45,12 @@ namespace Adjustable_Ability_Cooldowns
         public static Adjustable_Ability_Cooldowns_Settings settings;
         private Vector2 scrollPosition = new Vector2(0f, 0f);
         public float scrollViewHeight;
-
+        //DLC
         public static bool SectionIdeology = false;
         public static bool SectionBiotech = false;
         public static bool SectionAnomaly = false;
         public static bool SectionOdyssey = false;
+        //Mods
         public static bool SectionAlphaGenes = false;
         public static bool SectionVFETribals = false;
         public static bool SectionVME = false;
@@ -57,7 +58,6 @@ namespace Adjustable_Ability_Cooldowns
         public Adjustable_Ability_Cooldowns(ModContentPack content) : base(content)
         {
             settings = GetSettings<Adjustable_Ability_Cooldowns_Settings>();
-
         }
 
         public override void DoSettingsWindowContents(Rect inRect)
@@ -68,7 +68,7 @@ namespace Adjustable_Ability_Cooldowns
 
             options.BeginScrollViewEx(inRect, ref scrollPosition, viewRect);
 
-            //Ideology
+            //DLC
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.ideology") != null)
             {
                 if (SectionIdeology)
@@ -87,7 +87,6 @@ namespace Adjustable_Ability_Cooldowns
                     Ideology_Setting.DrawIdeology(options);
                 }
             }
-            //Biotech
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
                 if (SectionBiotech)
@@ -105,7 +104,6 @@ namespace Adjustable_Ability_Cooldowns
                     Biotech_Setting.DrawBiotech(options);
                 }
             }
-            //Anomaly
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.anomaly") != null)
             {
                 if (SectionAnomaly)
@@ -123,7 +121,6 @@ namespace Adjustable_Ability_Cooldowns
                     Anomaly_Settings.DrawAnomaly(options);
                 }
             }
-            //Odyssey
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.odyssey") != null)
             {
                 if (SectionOdyssey)
@@ -141,7 +138,7 @@ namespace Adjustable_Ability_Cooldowns
                     Odyssey_Settings.DrawOdyssey(options);
                 }
             }
-            //Alpha Genes
+            //Mods
             if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
                 if (SectionAlphaGenes)
@@ -159,7 +156,6 @@ namespace Adjustable_Ability_Cooldowns
                     AlphaGene_Settings.DrawAlphaGenes(options);
                 }
             }
-            //Vanilla Factions Expanded - Tribals
             if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
             {
                 if (SectionVFETribals)
@@ -177,7 +173,6 @@ namespace Adjustable_Ability_Cooldowns
                     VFETribals_Settings.DrawVFETribals(options);
                 }
             }
-            //Vanilla Ideology Expanded - Memes and Structures
             if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
             {
                 if (SectionVME)
@@ -222,7 +217,7 @@ namespace Adjustable_Ability_Cooldowns
         private static void ApplySettings()
         {
             Ideology_Setting.ApplySettingIdeology();
-            //DLCs and Mods
+            //DLC
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
                 Biotech_Setting.ApplySettingBiotech();
@@ -235,6 +230,7 @@ namespace Adjustable_Ability_Cooldowns
             {
                 Odyssey_Settings.ApplySettingOdyssey();
             }
+            //Mods
             if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
                 AlphaGene_Settings.ApplySettingAlphaGenes();
@@ -252,7 +248,7 @@ namespace Adjustable_Ability_Cooldowns
         private static void ResetSettings()
         {
             Ideology_Setting.ResetSettingsIdeology();
-            //DLCs and Mods
+            //DLC
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
                 Biotech_Setting.ResetSettingsBiotech();
@@ -265,6 +261,7 @@ namespace Adjustable_Ability_Cooldowns
             {
                 Odyssey_Settings.ResetSettingsOdyssey();
             }
+            //Mod
             if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
                 AlphaGene_Settings.ResetSettingsAlphaGenes();
