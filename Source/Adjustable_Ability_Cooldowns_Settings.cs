@@ -11,7 +11,6 @@ namespace Adjustable_Ability_Cooldowns
         //Add DLC and Mods here
         public override void ExposeData()
         {
-            base.ExposeData();
             Ideology_Setting.ExposeData();
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
@@ -41,7 +40,7 @@ namespace Adjustable_Ability_Cooldowns
             {
                 BigSmallGenesMore_Settings.ExposeData();
             }
-
+            base.ExposeData();
         }
     }
 
