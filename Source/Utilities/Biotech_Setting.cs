@@ -8,8 +8,8 @@ namespace Adjustable_Ability_Cooldowns.Utilities
 {
     public static class Biotech_Setting
     {
-        public static float abilityPiercingSpine = 1;
-        public static float abilityResurrect = 120;
+        public static float abilityPiercingSpine = 1; //Seconds
+        public static float abilityResurrect = 120; //Days
         public static float abilityAcidSpray = 12; //Hours
         public static float abilityFoamSpray = 12; //Hours
         public static float abilityFireSpew = 5; //Days
@@ -44,17 +44,17 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             //Biotech
             listing_Standard.Label("Biotech abilities");
             listing_Standard.AddLabeledSlider("Cooldown for the ability: PiercingSpine (" + abilityPiercingSpine + ") Seconds", ref abilityPiercingSpine, 0, 60, "0", "60", 1);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: Resurrect (" + abilityResurrect + ") Days", ref abilityResurrect, 0, 120, "0", "120", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: AcidSpray (" + abilityAcidSpray + ") Hours", ref abilityAcidSpray, 0, 24, "0", "24", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: FoamSpray (" + abilityFoamSpray + ") Hours", ref abilityFoamSpray, 0, 24, "0", "24", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: FireSpew (" + abilityFireSpew + ") Days", ref abilityFireSpew, 0, 15, "0", "15", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: Resurrect (" + abilityResurrect + ") Days", ref abilityResurrect, 0, 120, "0", "120", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: AcidSpray (" + abilityAcidSpray + ") Hours", ref abilityAcidSpray, 0, 24, "0", "24", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: FoamSpray (" + abilityFoamSpray + ") Hours", ref abilityFoamSpray, 0, 24, "0", "24", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: FireSpew (" + abilityFireSpew + ") Days", ref abilityFireSpew, 0, 15, "0", "15", 0.25f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: Longjump (" + abilityLongjump + ") Seconds", ref abilityLongjump, 0, 60, "0", "60", 1);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: FireBurst (" + abilityFireBurst + ") Seconds", ref abilityFireBurst, 0, 60, "0", "60", 1);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: AnimalWarcall (" + abilityAnimalWarcall + ") Days", ref abilityAnimalWarcall, 0, 15, "0", "15", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: AnimalWarcall (" + abilityAnimalWarcall + ") Days", ref abilityAnimalWarcall, 0, 15, "0", "15", 0.25f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: LongjumpMech (" + abilityLongjumpMech + ") Seconds", ref abilityLongjumpMech, 0, 60, "0", "60", 1);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: LongjumpMechLauncher (" + abilityLongjumpMechLauncher + ") Hours", ref abilityLongjumpMechLauncher, 0, 24, "0", "24", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: SmokepopMech (" + abilitySmokepopMech + ") Days", ref abilitySmokepopMech, 0, 15, "0", "15", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: FirefoampopMech (" + abilityFirefoampopMech + ") Days", ref abilityFirefoampopMech, 0, 15, "0", "15", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: LongjumpMechLauncher (" + abilityLongjumpMechLauncher + ") Hours", ref abilityLongjumpMechLauncher, 0, 24, "0", "24", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: SmokepopMech (" + abilitySmokepopMech + ") Days", ref abilitySmokepopMech, 0, 15, "0", "15", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: FirefoampopMech (" + abilityFirefoampopMech + ") Days", ref abilityFirefoampopMech, 0, 15, "0", "15", 0.25f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: ResurrectionMech (" + abilityResurrectionMech + ") Seconds", ref abilityResurrectionMech, 0, 60, "0", "60", 1);
             listing_Standard.AddHorizontalLine();
 

@@ -22,7 +22,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static void DrawExample(Listing_Standard listing_Standard)
         {
             listing_Standard.Label("Example abilities");
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: Example (" + abilityExampleData + ") Hours", ref abilityExampleData, 0, 24, "0", "24", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: Example (" + abilityExampleData + ") Hours", ref abilityExampleData, 0, 24, "0", "24", 0.25f);
             listing_Standard.AddLabeledSlider("Cooldown for the ritual: Example (" + ritualExampleData + ") days", ref ritualExampleData, 0, 120, "0", "120", 1f);
             listing_Standard.AddHorizontalLine();
 

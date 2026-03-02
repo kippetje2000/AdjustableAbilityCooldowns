@@ -29,30 +29,30 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static void DrawOdyssey(Listing_Standard listing_Standard)
         {
             listing_Standard.Label("Odyssey abilities");
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: SludgeSpew (" + abilitySludgeSpew + ") Hours", ref abilitySludgeSpew, 0, 24, "0", "24", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: EggSpew (" + abilityEggSpew + ") Hours", ref abilityEggSpew, 0, 24, "0", "24", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: CallMechanoids (" + abilityCallMechanoids + ") Hours", ref abilityCallMechanoids, 0, 24, "0", "24", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: CallDropPods (" + abilityCallDropPods + ") Hours", ref abilityCallDropPods, 0, 15, "0", "15", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: DeactivateMechanoid (" + abilityDeactivateMechanoid + ") Hours", ref abilityDeactivateMechanoid, 0, 24, "0", "24", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: TerrorRoar (" + abilityTerrorRoar + ") Hours", ref abilityTerrorRoar, 0, 24, "0", "24", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: SludgeSpew (" + abilitySludgeSpew + ") Hours", ref abilitySludgeSpew, 0, 24, "0", "24", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: EggSpew (" + abilityEggSpew + ") Hours", ref abilityEggSpew, 0, 24, "0", "24", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: CallMechanoids (" + abilityCallMechanoids + ") Hours", ref abilityCallMechanoids, 0, 24, "0", "24", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: CallDropPods (" + abilityCallDropPods + ") Hours", ref abilityCallDropPods, 0, 15, "0", "15", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: DeactivateMechanoid (" + abilityDeactivateMechanoid + ") Hours", ref abilityDeactivateMechanoid, 0, 24, "0", "24", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: TerrorRoar (" + abilityTerrorRoar + ") Hours", ref abilityTerrorRoar, 0, 24, "0", "24", 0.25f);
             listing_Standard.AddHorizontalLine();
 
             listing_Standard.Gap(10);
 
             //Save settings
             GUI.color = Color.green;
-            if (listing_Standard.ButtonText("Apply Example Settings"))
+            if (listing_Standard.ButtonText("Apply Odyssey Settings"))
             {
                 ApplySettingOdyssey();
-                Messages.Message("Applied Example Settings", MessageTypeDefOf.NeutralEvent);
+                Messages.Message("Applied Odyssey Settings", MessageTypeDefOf.NeutralEvent);
 
             }
             //Reset settings
             GUI.color = Color.red;
-            if (listing_Standard.ButtonText("Reset Example Settings"))
+            if (listing_Standard.ButtonText("Reset Odyssey Settings"))
             {
                 ResetSettingsOdyssey();
-                Messages.Message("Reset Example Settings", MessageTypeDefOf.NeutralEvent);
+                Messages.Message("Reset Odyssey Settings", MessageTypeDefOf.NeutralEvent);
 
             }
             listing_Standard.Gap(10);

@@ -70,34 +70,34 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         {
             //Rituals
             listing_Standard.Label("Anomaly rituals");
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: VoidProvocation (" + ritualVoidProvocation + ") Days", ref ritualVoidProvocation, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: ImbueDeathRefusal (" + ritualImbueDeathRefusal + ") Days", ref ritualImbueDeathRefusal, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: Philophagy (" + ritualPhilophagy + ") Days", ref ritualPhilophagy, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonAnimals (" + ritualSummonAnimals + ") Days", ref ritualSummonAnimals, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonShamblers (" + ritualSummonShamblers + ") Days", ref ritualSummonShamblers, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonPitGate (" + ritualSummonPitGate + ") Days", ref ritualSummonPitGate, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: Chronophagy (" + ritualChronophagy + ") Days", ref ritualChronophagy, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: PleasurePulse (" + ritualPleasurePulse + ") Days", ref ritualPleasurePulse, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: NeurosisPulse (" + ritualNeurosisPulse + ") Days", ref ritualNeurosisPulse, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: BloodRain (" + ritualBloodRain + ") Days", ref ritualBloodRain, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: Brainwipe (" + ritualBrainwipe + ") Days", ref ritualBrainwipe, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: Psychophagy (" + ritualPsychophagy + ") Days", ref ritualPsychophagy, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: SkipAbduction (" + ritualSkipAbduction + ") Days", ref ritualSkipAbduction, 0.5f, 60, "0.5", "60", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonFleshbeasts (" + ritualSummonFleshbeasts + ") Days", ref ritualSummonFleshbeasts, 0.5f, 60, "0.5", "60", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: VoidProvocation (" + ritualVoidProvocation + ") Days", ref ritualVoidProvocation, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: ImbueDeathRefusal (" + ritualImbueDeathRefusal + ") Days", ref ritualImbueDeathRefusal, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: Philophagy (" + ritualPhilophagy + ") Days", ref ritualPhilophagy, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonAnimals (" + ritualSummonAnimals + ") Days", ref ritualSummonAnimals, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonShamblers (" + ritualSummonShamblers + ") Days", ref ritualSummonShamblers, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonPitGate (" + ritualSummonPitGate + ") Days", ref ritualSummonPitGate, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: Chronophagy (" + ritualChronophagy + ") Days", ref ritualChronophagy, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: PleasurePulse (" + ritualPleasurePulse + ") Days", ref ritualPleasurePulse, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: NeurosisPulse (" + ritualNeurosisPulse + ") Days", ref ritualNeurosisPulse, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: BloodRain (" + ritualBloodRain + ") Days", ref ritualBloodRain, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: Brainwipe (" + ritualBrainwipe + ") Days", ref ritualBrainwipe, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: Psychophagy (" + ritualPsychophagy + ") Days", ref ritualPsychophagy, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: SkipAbduction (" + ritualSkipAbduction + ") Days", ref ritualSkipAbduction, 0.25f, 60, "0.25", "60", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ritual: SummonFleshbeasts (" + ritualSummonFleshbeasts + ") Days", ref ritualSummonFleshbeasts, 0.25f, 60, "0.25", "60", 0.25f);
             listing_Standard.AddHorizontalLine();
 
             //Abilities
             listing_Standard.Label("Anomaly abilities");
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: UnnaturalHealing (" + abilityUnnaturalHealing + ") Days", ref abilityUnnaturalHealing, 0, 15, "0", "15", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: UnnaturalHealing (" + abilityUnnaturalHealing + ") Days", ref abilityUnnaturalHealing, 0, 15, "0", "15", 0.25f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: ShapeFlesh (" + abilityShapeFlesh + ") Seconds", ref abilityShapeFlesh, 0, 120, "0", "120", 1);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: TransmuteSteel (" + abilityTransmuteSteel + ") Hours", ref abilityTransmuteSteel, 0, 24, "0", "24", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: PsychicSlaughter (" + abilityPsychicSlaughter + ") Days", ref abilityPsychicSlaughter, 0, 15, "0", "15", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: ReleaseDeadlifeDust (" + abilityReleaseDeadlifeDust + ") Days", ref abilityReleaseDeadlifeDust, 0, 15, "0", "15", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: TransmuteSteel (" + abilityTransmuteSteel + ") Hours", ref abilityTransmuteSteel, 0, 24, "0", "24", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: PsychicSlaughter (" + abilityPsychicSlaughter + ") Days", ref abilityPsychicSlaughter, 0, 15, "0", "15", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: ReleaseDeadlifeDust (" + abilityReleaseDeadlifeDust + ") Days", ref abilityReleaseDeadlifeDust, 0, 15, "0", "15", 0.25f);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: GhoulFrenzy (" + abilityGhoulFrenzy + ") Seconds", ref abilityGhoulFrenzy, 0, 120, "0", "120", 1);
             listing_Standard.AddLabeledSlider("Cooldown for the ability: CorrosiveSpray (" + abilityCorrosiveSpray + ") Seconds", ref abilityCorrosiveSpray, 0, 120, "0", "120", 1);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: MetalbloodInjection (" + abilityMetalbloodInjection + ") Hours", ref abilityMetalbloodInjection, 0, 24, "0", "24", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: RevenantInvisibility (" + abilityRevenantInvisibility + ") Hours", ref abilityRevenantInvisibility, 0, 24, "0", "24", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: VoidTerror (" + abilityVoidTerror + ") Hours", ref abilityVoidTerror, 0, 24, "0", "24", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: MetalbloodInjection (" + abilityMetalbloodInjection + ") Hours", ref abilityMetalbloodInjection, 0, 24, "0", "24", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: RevenantInvisibility (" + abilityRevenantInvisibility + ") Hours", ref abilityRevenantInvisibility, 0, 24, "0", "24", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: VoidTerror (" + abilityVoidTerror + ") Hours", ref abilityVoidTerror, 0, 24, "0", "24", 0.25f);
             listing_Standard.AddHorizontalLine();
 
             listing_Standard.Gap(10);

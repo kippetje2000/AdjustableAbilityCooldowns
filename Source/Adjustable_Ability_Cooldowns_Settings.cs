@@ -8,6 +8,7 @@ namespace Adjustable_Ability_Cooldowns
 {
     public class Adjustable_Ability_Cooldowns_Settings : ModSettings
     {
+        //Add DLC and Mods here
         public override void ExposeData()
         {
             base.ExposeData();
@@ -36,6 +37,10 @@ namespace Adjustable_Ability_Cooldowns
             {
                 VME_Settings.ExposeDataVME();
             }
+            if (ModLister.GetActiveModWithIdentifier("redmattis.bigsmall.core") != null)
+            {
+                BigSmallGenesMore_Settings.ExposeDataBigSmallGenesMore();
+            }
 
         }
     }
@@ -45,6 +50,8 @@ namespace Adjustable_Ability_Cooldowns
         public static Adjustable_Ability_Cooldowns_Settings settings;
         private Vector2 scrollPosition = new Vector2(0f, 0f);
         public float scrollViewHeight;
+
+        //Add DLC and Mods here
         //DLC
         public static bool SectionIdeology = false;
         public static bool SectionBiotech = false;
@@ -54,6 +61,7 @@ namespace Adjustable_Ability_Cooldowns
         public static bool SectionAlphaGenes = false;
         public static bool SectionVFETribals = false;
         public static bool SectionVME = false;
+        public static bool SectionBigSmallGenesMore = false;
 
         public Adjustable_Ability_Cooldowns(ModContentPack content) : base(content)
         {
@@ -68,6 +76,7 @@ namespace Adjustable_Ability_Cooldowns
 
             options.BeginScrollViewEx(inRect, ref scrollPosition, viewRect);
 
+            //Add DLC and Mods here
             //DLC
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.ideology") != null)
             {
@@ -190,6 +199,23 @@ namespace Adjustable_Ability_Cooldowns
                     VME_Settings.DrawVME(options);
                 }
             }
+            if (ModLister.GetActiveModWithIdentifier("redmattis.bigsmall.core") != null)
+            {
+                if (SectionBigSmallGenesMore)
+                    GUI.color = Color.gray;
+                else
+                    GUI.color = Color.white;
+                if (options.ButtonText("Big and Small - Genes & More"))
+                {
+                    SectionBigSmallGenesMore = !SectionBigSmallGenesMore;
+                }
+                GUI.color = Color.white;
+
+                if (SectionBigSmallGenesMore)
+                {
+                    BigSmallGenesMore_Settings.DrawBigSmallGenesMore(options);
+                }
+            }
 
             options.EndScrollView(ref viewRect);
             scrollViewHeight = viewRect.height;
@@ -216,6 +242,7 @@ namespace Adjustable_Ability_Cooldowns
 
         private static void ApplySettings()
         {
+            //Add DLC and Mods here
             Ideology_Setting.ApplySettingIdeology();
             //DLC
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
@@ -230,6 +257,7 @@ namespace Adjustable_Ability_Cooldowns
             {
                 Odyssey_Settings.ApplySettingOdyssey();
             }
+
             //Mods
             if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
@@ -243,10 +271,15 @@ namespace Adjustable_Ability_Cooldowns
             {
                 VME_Settings.ApplySettingVME();
             }
+            if (ModLister.GetActiveModWithIdentifier("redmattis.bigsmall.core") != null)
+            {
+                BigSmallGenesMore_Settings.ApplySettingBigSmallGenesMore();
+            }
         }
 
         private static void ResetSettings()
         {
+            //Add DLC and Mods here
             Ideology_Setting.ResetSettingsIdeology();
             //DLC
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
@@ -261,7 +294,8 @@ namespace Adjustable_Ability_Cooldowns
             {
                 Odyssey_Settings.ResetSettingsOdyssey();
             }
-            //Mod
+
+            //Mods
             if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
                 AlphaGene_Settings.ResetSettingsAlphaGenes();
@@ -273,6 +307,10 @@ namespace Adjustable_Ability_Cooldowns
             if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
             {
                 VME_Settings.ResetSettingsVME();
+            }
+            if (ModLister.GetActiveModWithIdentifier("redmattis.bigsmall.core") != null)
+            {
+                BigSmallGenesMore_Settings.ResetSettingsBigSmallGenesMore();
             }
         }
 

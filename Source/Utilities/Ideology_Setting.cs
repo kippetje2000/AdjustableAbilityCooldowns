@@ -78,42 +78,42 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             //ritual penalty
             listing_Standard.Label("Ritual");
             listing_Standard.AddLabeledSlider("Percentage for the Ritual Penalty (" + ritualPenalty + ") %", ref ritualPenalty, 0, 100, "0", "100", 1f);
-            listing_Standard.AddLabeledSlider("Cooldown for the Rituals (" + ritualCooldown + ") Days", ref ritualCooldown, 0, 20, "0", "20", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the Rituals (" + ritualCooldown + ") Days", ref ritualCooldown, 0, 20, "0", "20", 0.25f);
             listing_Standard.Label("This works for all rituals including rituals added by other mods");
             //Abilities
             listing_Standard.AddHorizontalLine();
             listing_Standard.Label("Leader abilities");
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: LeaderSpeech (" + abilityLeaderSpeech + ") Days", ref abilityLeaderSpeech, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: Trial (" + abilityTrial + ") Days", ref abilityTrial, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: WorkDrive (" + abilityWorkDrive + ") Days", ref abilityWorkDrive, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: CombatCommand (" + abilityCombatCommand + ") Days", ref abilityCombatCommand, 0, 20, "0", "20", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: LeaderSpeech (" + abilityLeaderSpeech + ") Days", ref abilityLeaderSpeech, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: Trial (" + abilityTrial + ") Days", ref abilityTrial, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: WorkDrive (" + abilityWorkDrive + ") Days", ref abilityWorkDrive, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: CombatCommand (" + abilityCombatCommand + ") Days", ref abilityCombatCommand, 0, 20, "0", "20", 0.25f);
             listing_Standard.AddHorizontalLine();
 
             listing_Standard.Label("Moral Guide abilities");
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: Convert (" + abilityConvert + ") Days", ref abilityConvert, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: PreachHealth (" + abilityPreachHealth + ") Days", ref abilityPreachHealth, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: Reassure (" + abilityReassure + ") Days", ref abilityReassure, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: Counsel (" + abilityCounsel + ") Days", ref abilityCounsel, 0, 20, "0", "20", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: Convert (" + abilityConvert + ") Days", ref abilityConvert, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: PreachHealth (" + abilityPreachHealth + ") Days", ref abilityPreachHealth, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: Reassure (" + abilityReassure + ") Days", ref abilityReassure, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: Counsel (" + abilityCounsel + ") Days", ref abilityCounsel, 0, 20, "0", "20", 0.25f);
             listing_Standard.AddHorizontalLine();
 
             listing_Standard.Label("Specialist abilities");
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: AnimalCalm (" + abilityAnimalCalm + ") Days", ref abilityAnimalCalm, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: ImmunityDrive (" + abilityImmunityDrive + ") Days", ref abilityImmunityDrive, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: BerserkTrance (" + abilityBerserkTrance + ") Days", ref abilityBerserkTrance, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: MiningCommand (" + abilityMiningCommand + ") Days", ref abilityMiningCommand, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: FarmingCommand (" + abilityFarmingCommand + ") Days", ref abilityFarmingCommand, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: ProductionCommand (" + abilityProductionCommand + ") Days", ref abilityProductionCommand, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: ResearchCommand (" + abilityResearchCommand + ") Days", ref abilityResearchCommand, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the ability: MarksmanCommand (" + abilityMarksmanCommand + ") Days", ref abilityMarksmanCommand, 0, 20, "0", "20", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: AnimalCalm (" + abilityAnimalCalm + ") Days", ref abilityAnimalCalm, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: ImmunityDrive (" + abilityImmunityDrive + ") Days", ref abilityImmunityDrive, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: BerserkTrance (" + abilityBerserkTrance + ") Days", ref abilityBerserkTrance, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: MiningCommand (" + abilityMiningCommand + ") Days", ref abilityMiningCommand, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: FarmingCommand (" + abilityFarmingCommand + ") Days", ref abilityFarmingCommand, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: ProductionCommand (" + abilityProductionCommand + ") Days", ref abilityProductionCommand, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: ResearchCommand (" + abilityResearchCommand + ") Days", ref abilityResearchCommand, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the ability: MarksmanCommand (" + abilityMarksmanCommand + ") Days", ref abilityMarksmanCommand, 0, 20, "0", "20", 0.25f);
             listing_Standard.AddHorizontalLine();
 
             listing_Standard.Label("More options");
             listing_Standard.AddLabeledCheckbox("Get notification when cooldown of ability is complete", ref notificationOnCooldownCompleteIdeology);
             listing_Standard.AddLabeledCheckbox("Use ablilities separately from each other", ref separatedAblilitiesIdeology);
             listing_Standard.Label("If option above is off, Sliders from the Leader, Moralist and Specialist role abilities will no longer work and the sliders below will allow you to adjust the cooldown of those roles");
-            listing_Standard.AddLabeledSlider("Cooldown for the role: Leader (" + abilityRoleLeader + ") Days", ref abilityRoleLeader, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the role: Moralist (" + abilityRoleMoralist + ") Days", ref abilityRoleMoralist, 0, 20, "0", "20", 0.5f);
-            listing_Standard.AddLabeledSlider("Cooldown for the role: Specialist (" + abilityRoleMultiRole + ") Days", ref abilityRoleMultiRole, 0, 20, "0", "20", 0.5f);
+            listing_Standard.AddLabeledSlider("Cooldown for the role: Leader (" + abilityRoleLeader + ") Days", ref abilityRoleLeader, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the role: Moralist (" + abilityRoleMoralist + ") Days", ref abilityRoleMoralist, 0, 20, "0", "20", 0.25f);
+            listing_Standard.AddLabeledSlider("Cooldown for the role: Specialist (" + abilityRoleMultiRole + ") Days", ref abilityRoleMultiRole, 0, 20, "0", "20", 0.25f);
             listing_Standard.AddHorizontalLine();
 
             listing_Standard.Gap(10);
