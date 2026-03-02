@@ -40,7 +40,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static bool separatedAblilitiesVME = false;
         public static bool notificationOnCooldownCompleteVME = true;
 
-        public static void ExposeDataVME()
+        public static void ExposeData()
         {
             //Exalted Leader
             Scribe_Values.Look(ref abilityRoleVME_ExaltedLeader, "abilityRoleVME_ExaltedLeader");
@@ -72,7 +72,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             Scribe_Values.Look(ref notificationOnCooldownCompleteVME, "notificationOnCooldownCompleteVME", true);
 
         }
-        public static void DrawVME(Listing_Standard listing_Standard)
+        public static void Draw(Listing_Standard listing_Standard)
         {
             listing_Standard.Label("Exalted Leader abilities");
             listing_Standard.AddLabeledSlider("Cooldown for the ritual: Conversion Ritual (" + abilityVME_LeaderConversionRitual + ") days", ref abilityVME_LeaderConversionRitual, 0, 15, "0", "15", 1f);
@@ -130,7 +130,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.green;
             if (listing_Standard.ButtonText("Apply Memes and Structures Settings"))
             {
-                ApplySettingVME();
+                ApplySettings();
                 Messages.Message("Applied Memes and Structures Settings", MessageTypeDefOf.NeutralEvent);
 
             }
@@ -138,13 +138,13 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.red;
             if (listing_Standard.ButtonText("Reset Memes and Structures Settings"))
             {
-                ResetSettingsVME();
+                ResetSettings();
                 Messages.Message("Reset Memes and Structures Settings", MessageTypeDefOf.NeutralEvent);
 
             }
             listing_Standard.Gap(10);
         }
-        public static void ApplySettingVME()
+        public static void ApplySettings()
         {
             DefDatabase<AbilityGroupDef>.GetNamed("VME_ExaltedLeader").cooldownTicks = Convert.ToInt32(abilityRoleVME_ExaltedLeader * 60000 + 1);
 
@@ -236,7 +236,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
                 DefDatabase<AbilityDef>.GetNamed("VME_LeaderCounsel").groupDef = DefDatabase<AbilityGroupDef>.GetNamed("VME_ExaltedLeader");
             }
         }
-        public static void ResetSettingsVME()
+        public static void ResetSettings()
         {
             abilityRoleVME_ExaltedLeader = 10; //Days
             abilityVME_LeaderConversionRitual = 8; //Days
@@ -258,7 +258,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             separatedAblilitiesVME = false;
             notificationOnCooldownCompleteVME = true;
 
-            ApplySettingVME();
+            ApplySettings();
 
         }
     }

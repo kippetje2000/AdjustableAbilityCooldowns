@@ -36,7 +36,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static float abilityRevenantInvisibility = 6; //Hours
         public static float abilityVoidTerror = 3; //Hours
 
-        public static void ExposeDataAnomaly()
+        public static void ExposeData()
         {
             //Rituals
             Scribe_Values.Look(ref ritualVoidProvocation, "ritualVoidProvocation");
@@ -66,7 +66,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             Scribe_Values.Look(ref abilityRevenantInvisibility, "abilityRevenantInvisibility");
             Scribe_Values.Look(ref abilityVoidTerror, "abilityVoidTerror");
         }
-        public static void DrawAnomaly(Listing_Standard listing_Standard)
+        public static void Draw(Listing_Standard listing_Standard)
         {
             //Rituals
             listing_Standard.Label("Anomaly rituals");
@@ -105,7 +105,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.green;
             if (listing_Standard.ButtonText("Apply Anomaly Settings"))
             {
-                ApplySettingAnomaly();
+                ApplySettings();
                 Messages.Message("Applied Anomaly Settings", MessageTypeDefOf.NeutralEvent);
 
             }
@@ -113,13 +113,13 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.red;
             if (listing_Standard.ButtonText("Reset Anomaly Settings"))
             {
-                ResetSettingsAnomaly();
+                ResetSettings();
                 Messages.Message("Reset Anomaly Settings", MessageTypeDefOf.NeutralEvent);
 
             }
             listing_Standard.Gap(10);
         }
-        public static void ApplySettingAnomaly()
+        public static void ApplySettings()
         {
             //Rituals
             DefDatabase<PsychicRitualDef>.GetNamed("VoidProvocation").cooldownHours = Convert.ToInt32(ritualVoidProvocation * 24);
@@ -159,7 +159,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             int tickVoidTerror = Convert.ToInt32(abilityVoidTerror * 2500 + 1);
             DefDatabase<AbilityDef>.GetNamed("VoidTerror").cooldownTicksRange = new IntRange(tickVoidTerror, tickVoidTerror);
         }
-        public static void ResetSettingsAnomaly()
+        public static void ResetSettings()
         {
             //Rituals
             ritualVoidProvocation = 5; //Days
@@ -189,7 +189,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityRevenantInvisibility = 6; //Hours
             abilityVoidTerror = 3; //Hours
 
-            ApplySettingAnomaly();
+            ApplySettings();
         }
     }
 }

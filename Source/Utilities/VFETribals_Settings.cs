@@ -12,11 +12,11 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         //60 ticks = 1 sec
         //2500 ticks = 1 hour
         public static float ritualVFET_TribalGathering = 24; //Hours
-        public static void ExposeDataVFETribals()
+        public static void ExposeData()
         {
             Scribe_Values.Look(ref ritualVFET_TribalGathering, "ritualVFET_TribalGathering");
         }
-        public static void DrawVFETribals(Listing_Standard listing_Standard)
+        public static void Draw(Listing_Standard listing_Standard)
         {
             listing_Standard.Label("VFE Tribals rituals");
             listing_Standard.AddLabeledSlider("Cooldown for the ritual: Tribal Gathering (" + ritualVFET_TribalGathering + ") Hours", ref ritualVFET_TribalGathering, 0, 72, "0", "72", 1f);
@@ -27,7 +27,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.green;
             if (listing_Standard.ButtonText("Apply VFE Tribal Settings"))
             {
-                ApplySettingVFETribals();
+                ApplySettings();
                 Messages.Message("Applied VFE Tribal settings", MessageTypeDefOf.NeutralEvent);
 
             }
@@ -35,21 +35,21 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.red;
             if (listing_Standard.ButtonText("Reset VFE Tribal Settings"))
             {
-                ResetSettingsVFETribals();
+                ResetSettings();
                 Messages.Message("Reset VFE Tribal settings", MessageTypeDefOf.NeutralEvent);
 
             }
             listing_Standard.Gap(10);
         }
-        public static void ApplySettingVFETribals()
+        public static void ApplySettings()
         {
             DefDatabase<AbilityGroupDef>.GetNamed("VFET_TribalGathering").cooldownTicks = Convert.ToInt32(ritualVFET_TribalGathering * 2500 + 1);
         }
-        public static void ResetSettingsVFETribals()
+        public static void ResetSettings()
         {
             ritualVFET_TribalGathering = 24; //Hours
 
-            ApplySettingVFETribals();
+            ApplySettings();
         }
     }
 }

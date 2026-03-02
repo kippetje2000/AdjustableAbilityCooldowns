@@ -39,7 +39,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
 
         public static bool separatedAblilitiesIdeology = false;
         public static bool notificationOnCooldownCompleteIdeology = true;
-        public static void ExposeDataIdeology()
+        public static void ExposeData()
         {
             //Ritual
             Scribe_Values.Look(ref ritualPenalty, "ritualPenalty");
@@ -73,7 +73,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             Scribe_Values.Look(ref separatedAblilitiesIdeology, "separatedAblilities", false);
             Scribe_Values.Look(ref notificationOnCooldownCompleteIdeology, "notificationOnCooldownComplete", true);
         }
-        public static void DrawIdeology(Listing_Standard listing_Standard)
+        public static void Draw(Listing_Standard listing_Standard)
         {
             //ritual penalty
             listing_Standard.Label("Ritual");
@@ -121,7 +121,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.green;
             if (listing_Standard.ButtonText("Apply Ideology Settings"))
             {
-                ApplySettingIdeology();
+                ApplySettings();
                 Messages.Message("Applied Ideology Settings", MessageTypeDefOf.NeutralEvent);
 
             }
@@ -129,13 +129,13 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.red;
             if (listing_Standard.ButtonText("Reset Ideology Settings"))
             {
-                ResetSettingsIdeology();
+                ResetSettings();
                 Messages.Message("Reset Ideology Settings", MessageTypeDefOf.NeutralEvent);
 
             }
             listing_Standard.Gap(10);
         }
-        public static void ApplySettingIdeology()
+        public static void ApplySettings()
         {
             //Leader abilities
             DefDatabase<AbilityGroupDef>.GetNamed("Leader").cooldownTicks = Convert.ToInt32(abilityRoleLeader * 60000 + 1);
@@ -295,7 +295,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
                 DefDatabase<AbilityDef>.GetNamed("Counsel").groupDef = DefDatabase<AbilityGroupDef>.GetNamed("Moralist");
             }
         }
-        public static void ResetSettingsIdeology()
+        public static void ResetSettings()
         {
             //Rituals
             ritualPenalty = 95; //%
@@ -329,7 +329,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             separatedAblilitiesIdeology = false;
             notificationOnCooldownCompleteIdeology = true;
 
-            ApplySettingIdeology();
+            ApplySettings();
         }
 
     }

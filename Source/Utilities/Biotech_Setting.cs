@@ -22,7 +22,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static float abilityFirefoampopMech = 5; //Days
         public static float abilityResurrectionMech = 2; //Seconds
 
-        public static void ExposeDataBiotech()
+        public static void ExposeData()
         {
             //Biotech
             Scribe_Values.Look(ref abilityPiercingSpine, "abilityPiercingSpine");
@@ -39,7 +39,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             Scribe_Values.Look(ref abilityFirefoampopMech, "abilityFirefoampopMech");
             Scribe_Values.Look(ref abilityResurrectionMech, "abilityResurrectionMech");
         }
-        public static void DrawBiotech(Listing_Standard listing_Standard)
+        public static void Draw(Listing_Standard listing_Standard)
         {
             //Biotech
             listing_Standard.Label("Biotech abilities");
@@ -63,7 +63,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.green;
             if (listing_Standard.ButtonText("Apply Biotech Settings"))
             {
-                ApplySettingBiotech();
+                ApplySettings();
                 Messages.Message("Applied Biotech Settings", MessageTypeDefOf.NeutralEvent);
 
             }
@@ -71,13 +71,13 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.red;
             if (listing_Standard.ButtonText("Reset Biotech Settings"))
             {
-                ResetSettingsBiotech();
+                ResetSettings();
                 Messages.Message("Reset Biotech Settings", MessageTypeDefOf.NeutralEvent);
 
             }
             listing_Standard.Gap(10);
         }
-        public static void ApplySettingBiotech()
+        public static void ApplySettings()
         {
             //Biotech
             int tickPiercingSpine = Convert.ToInt32(abilityPiercingSpine * 60 + 1);
@@ -108,7 +108,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             DefDatabase<AbilityDef>.GetNamed("ResurrectionMech").cooldownTicksRange = new IntRange(tickResurrectionMech, tickResurrectionMech);
 
         }
-        public static void ResetSettingsBiotech()
+        public static void ResetSettings()
         {
             //biotech
             abilityPiercingSpine = 1; //Seconds
@@ -125,7 +125,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityFirefoampopMech = 5; //Days
             abilityResurrectionMech = 2; //Seconds
 
-            ApplySettingBiotech();
+            ApplySettings();
         }
     }
 }

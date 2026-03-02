@@ -17,7 +17,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static float abilityCallDropPods = 3; //Days
         public static float abilityDeactivateMechanoid = 3; //Hours
         public static float abilityTerrorRoar = 3; //Hours
-        public static void ExposeDataOdyssey()
+        public static void ExposeData()
         {
             Scribe_Values.Look(ref abilitySludgeSpew, "abilitySludgeSpew");
             Scribe_Values.Look(ref abilityEggSpew, "abilityEggSpew");
@@ -26,7 +26,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             Scribe_Values.Look(ref abilityDeactivateMechanoid, "abilityDeactivateMechanoid");
             Scribe_Values.Look(ref abilityTerrorRoar, "abilityTerrorRoar");
         }
-        public static void DrawOdyssey(Listing_Standard listing_Standard)
+        public static void Draw(Listing_Standard listing_Standard)
         {
             listing_Standard.Label("Odyssey abilities");
             listing_Standard.AddLabeledSlider("Cooldown for the ability: SludgeSpew (" + abilitySludgeSpew + ") Hours", ref abilitySludgeSpew, 0, 24, "0", "24", 0.25f);
@@ -43,7 +43,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.green;
             if (listing_Standard.ButtonText("Apply Odyssey Settings"))
             {
-                ApplySettingOdyssey();
+                ApplySettings();
                 Messages.Message("Applied Odyssey Settings", MessageTypeDefOf.NeutralEvent);
 
             }
@@ -51,14 +51,14 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.red;
             if (listing_Standard.ButtonText("Reset Odyssey Settings"))
             {
-                ResetSettingsOdyssey();
+                ResetSettings();
                 Messages.Message("Reset Odyssey Settings", MessageTypeDefOf.NeutralEvent);
 
             }
             listing_Standard.Gap(10);
 
         }
-        public static void ApplySettingOdyssey()
+        public static void ApplySettings()
         {
             int tickAbilitySludgeSpew = Convert.ToInt32(abilitySludgeSpew * 2500 + 1);
             DefDatabase<AbilityDef>.GetNamed("SludgeSpew").cooldownTicksRange = new IntRange(tickAbilitySludgeSpew, tickAbilitySludgeSpew);
@@ -73,7 +73,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             int tickAbilityTerrorRoar = Convert.ToInt32(abilityTerrorRoar * 2500 + 1);
             DefDatabase<AbilityDef>.GetNamed("TerrorRoar").cooldownTicksRange = new IntRange(tickAbilityTerrorRoar, tickAbilityTerrorRoar);
         }
-        public static void ResetSettingsOdyssey()
+        public static void ResetSettings()
         {
             abilitySludgeSpew = 2; //Hours
             abilityEggSpew = 2; //Hours
@@ -82,7 +82,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityDeactivateMechanoid = 3; //Hours
             abilityTerrorRoar = 3; //Hours
 
-            ApplySettingOdyssey();
+            ApplySettings();
         }
     }
 }

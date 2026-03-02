@@ -19,7 +19,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             Scribe_Values.Look(ref ritualExampleData, "ritualExampleData");
 
         }
-        public static void DrawExample(Listing_Standard listing_Standard)
+        public static void Draw(Listing_Standard listing_Standard)
         {
             listing_Standard.Label("Example abilities");
             listing_Standard.AddLabeledSlider("Cooldown for the ability: Example (" + abilityExampleData + ") Hours", ref abilityExampleData, 0, 24, "0", "24", 0.25f);
@@ -32,7 +32,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.green;
             if (listing_Standard.ButtonText("Apply Example Settings"))
             {
-                ApplySettingExample();
+                ApplySettings();
                 Messages.Message("Applied Example Settings", MessageTypeDefOf.NeutralEvent);
 
             }
@@ -40,7 +40,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.red;
             if (listing_Standard.ButtonText("Reset Example Settings"))
             {
-                ResetSettingsExample();
+                ResetSettings();
                 Messages.Message("Reset Example Settings", MessageTypeDefOf.NeutralEvent);
 
             }
@@ -48,19 +48,19 @@ namespace Adjustable_Ability_Cooldowns.Utilities
 
 
         }
-        public static void ApplySettingExample()
+        public static void ApplySettings()
         {
             int tickAbilityExampleData = Convert.ToInt32(abilityExampleData * 2500 + 1);
             DefDatabase<AbilityDef>.GetNamed("AbilityExampleData").cooldownTicksRange = new IntRange(tickAbilityExampleData, tickAbilityExampleData);
             int tickRitualExampleData = Convert.ToInt32(ritualExampleData * 60000 + 1);
             DefDatabase<AbilityDef>.GetNamed("RitualExampleData").cooldownTicksRange = new IntRange(tickRitualExampleData, tickRitualExampleData);
         }
-        public static void ResetSettingsExample()
+        public static void ResetSettings()
         {
             abilityExampleData = 1; //Hours
             ritualExampleData = 1; //days
 
-            ApplySettingExample();
+            ApplySettings();
         }
     }
 }

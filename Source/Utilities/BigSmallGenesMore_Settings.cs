@@ -20,7 +20,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static float abilityBS_Incorporate_Abillity = 2; //Days
         public static float abilityBS_Mimic_Abillity = 4; //Hours
         public static float abilityBS_Parasite = 30; //Seconds
-        public static void ExposeDataBigSmallGenesMore()
+        public static void ExposeData()
         {
             Scribe_Values.Look(ref abilityVU_Hermaphromorph, "abilityVU_Hermaphromorph");
             Scribe_Values.Look(ref abilityBS_FoamSpray, "abilityBS_FoamSpray");
@@ -32,7 +32,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             Scribe_Values.Look(ref abilityBS_Mimic_Abillity, "abilityBS_Mimic_Abillity");
             Scribe_Values.Look(ref abilityBS_Parasite, "abilityBS_Parasite");
         }
-        public static void DrawBigSmallGenesMore(Listing_Standard listing_Standard)
+        public static void Draw(Listing_Standard listing_Standard)
         {
             listing_Standard.Label("Big and Small - Genes & More abilities");
             listing_Standard.AddLabeledSlider("Cooldown for the ability: Hermaphromorph (" + abilityVU_Hermaphromorph + ") Seconds", ref abilityVU_Hermaphromorph, 0, 60, "0", "60", 1f);
@@ -52,7 +52,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.green;
             if (listing_Standard.ButtonText("Apply Big and Small - Genes & More Settings"))
             {
-                ApplySettingBigSmallGenesMore();
+                ApplySettings();
                 Messages.Message("Applied Big and Small - Genes & More Settings", MessageTypeDefOf.NeutralEvent);
 
             }
@@ -60,14 +60,14 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.red;
             if (listing_Standard.ButtonText("Reset Big and Small - Genes & More Settings"))
             {
-                ResetSettingsBigSmallGenesMore();
+                ResetSettings();
                 Messages.Message("Reset Big and Small - Genes & More Settings", MessageTypeDefOf.NeutralEvent);
 
             }
             listing_Standard.Gap(10);
 
         }
-        public static void ApplySettingBigSmallGenesMore()
+        public static void ApplySettings()
         {
             int tickabilityVU_Hermaphromorph = Convert.ToInt32(abilityVU_Hermaphromorph * 60 + 1);
             DefDatabase<AbilityDef>.GetNamed("VU_Hermaphromorph").cooldownTicksRange = new IntRange(tickabilityVU_Hermaphromorph, tickabilityVU_Hermaphromorph);
@@ -88,7 +88,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             int tickabilityBS_Parasite = Convert.ToInt32(abilityBS_Parasite * 60 + 1);
             DefDatabase<AbilityDef>.GetNamed("BS_Parasite").cooldownTicksRange = new IntRange(tickabilityBS_Parasite, tickabilityBS_Parasite);
         }
-        public static void ResetSettingsBigSmallGenesMore()
+        public static void ResetSettings()
         {
             abilityVU_Hermaphromorph = 5; //Seconds
             abilityBS_FoamSpray = 3; //Hours
@@ -100,7 +100,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityBS_Mimic_Abillity = 4; //Hours
             abilityBS_Parasite = 30; //Seconds
 
-            ApplySettingBigSmallGenesMore();
+            ApplySettings();
         }
     }
 }

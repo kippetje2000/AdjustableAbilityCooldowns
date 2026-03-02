@@ -64,7 +64,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
         public static float abilityAG_PsychicAbsorption = 5; //Seconds
         public static float abilityAG_SpeedBurst = 5; //Hours
 
-        public static void ExposeDataAlphaGenes()
+        public static void ExposeData()
         {
             //Explosions
             Scribe_Values.Look(ref abilityAG_AcidicDetonation, "abilityAG_AcidicDetonation");
@@ -118,7 +118,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             Scribe_Values.Look(ref abilityAG_PsychicAbsorption, "abilityAG_PsychicAbsorption");
             Scribe_Values.Look(ref abilityAG_SpeedBurst, "abilityAG_SpeedBurst");
         }
-        public static void DrawAlphaGenes(Listing_Standard listing_Standard)
+        public static void Draw(Listing_Standard listing_Standard)
         {
             listing_Standard.Label("Explosions abilities");
             listing_Standard.AddLabeledSlider("Cooldown for the ability: Acidic Detonation (" + abilityAG_AcidicDetonation + ") Hours", ref abilityAG_AcidicDetonation, 0, 24, "0", "24", 0.25f);
@@ -185,20 +185,20 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             GUI.color = Color.green;
             if (listing_Standard.ButtonText("Apply Alpha Genes Settings"))
             {
-                ApplySettingAlphaGenes();
+                ApplySettings();
                 Messages.Message("Applied Alpha Genes Settings", MessageTypeDefOf.NeutralEvent);
             }
             //Reset settings
             GUI.color = Color.red;
             if (listing_Standard.ButtonText("Reset Alpha Genes Settings"))
             {
-                ResetSettingsAlphaGenes();
+                ResetSettings();
                 Messages.Message("Reset Alpha Genes Settings", MessageTypeDefOf.NeutralEvent);
 
             }
             listing_Standard.Gap(10);
         }
-        public static void ApplySettingAlphaGenes()
+        public static void ApplySettings()
         {
             //Explosions
             int tickAG_AcidicDetonation = Convert.ToInt32(abilityAG_AcidicDetonation * 2500 + 1);
@@ -295,7 +295,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             int tickAG_SpeedBurst = Convert.ToInt32(abilityAG_SpeedBurst * 2500 + 1);
             DefDatabase<AbilityDef>.GetNamed("AG_SpeedBurst").cooldownTicksRange = new IntRange(tickAG_SpeedBurst, tickAG_SpeedBurst);
         }
-        public static void ResetSettingsAlphaGenes()
+        public static void ResetSettings()
         {
             //Explosions
             abilityAG_AcidicDetonation = 12; //Hours
@@ -349,7 +349,7 @@ namespace Adjustable_Ability_Cooldowns.Utilities
             abilityAG_PsychicAbsorption = 5; //Seconds
             abilityAG_SpeedBurst = 5; //Hours
 
-            ApplySettingAlphaGenes();
+            ApplySettings();
         }
     }
 }

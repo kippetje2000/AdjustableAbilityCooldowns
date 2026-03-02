@@ -12,34 +12,34 @@ namespace Adjustable_Ability_Cooldowns
         public override void ExposeData()
         {
             base.ExposeData();
-            Ideology_Setting.ExposeDataIdeology();
+            Ideology_Setting.ExposeData();
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
-                Biotech_Setting.ExposeDataBiotech();
+                Biotech_Setting.ExposeData();
             }
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.anomaly") != null)
             {
-                Anomaly_Settings.ExposeDataAnomaly();
+                Anomaly_Settings.ExposeData();
             }
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.odyssey") != null)
             {
-                Odyssey_Settings.ExposeDataOdyssey();
+                Odyssey_Settings.ExposeData();
             }
             if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
-                AlphaGene_Settings.ExposeDataAlphaGenes();
+                AlphaGene_Settings.ExposeData();
             }
             if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
             {
-                VFETribals_Settings.ExposeDataVFETribals();
+                VFETribals_Settings.ExposeData();
             }
             if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
             {
-                VME_Settings.ExposeDataVME();
+                VME_Settings.ExposeData();
             }
             if (ModLister.GetActiveModWithIdentifier("redmattis.bigsmall.core") != null)
             {
-                BigSmallGenesMore_Settings.ExposeDataBigSmallGenesMore();
+                BigSmallGenesMore_Settings.ExposeData();
             }
 
         }
@@ -93,7 +93,7 @@ namespace Adjustable_Ability_Cooldowns
 
                 if (SectionIdeology)
                 {
-                    Ideology_Setting.DrawIdeology(options);
+                    Ideology_Setting.Draw(options);
                 }
             }
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
@@ -110,7 +110,7 @@ namespace Adjustable_Ability_Cooldowns
 
                 if (SectionBiotech)
                 {
-                    Biotech_Setting.DrawBiotech(options);
+                    Biotech_Setting.Draw(options);
                 }
             }
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.anomaly") != null)
@@ -127,7 +127,7 @@ namespace Adjustable_Ability_Cooldowns
 
                 if (SectionAnomaly)
                 {
-                    Anomaly_Settings.DrawAnomaly(options);
+                    Anomaly_Settings.Draw(options);
                 }
             }
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.odyssey") != null)
@@ -144,7 +144,7 @@ namespace Adjustable_Ability_Cooldowns
 
                 if (SectionOdyssey)
                 {
-                    Odyssey_Settings.DrawOdyssey(options);
+                    Odyssey_Settings.Draw(options);
                 }
             }
             //Mods
@@ -162,7 +162,7 @@ namespace Adjustable_Ability_Cooldowns
 
                 if (SectionAlphaGenes)
                 {
-                    AlphaGene_Settings.DrawAlphaGenes(options);
+                    AlphaGene_Settings.Draw(options);
                 }
             }
             if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
@@ -179,7 +179,7 @@ namespace Adjustable_Ability_Cooldowns
 
                 if (SectionVFETribals)
                 {
-                    VFETribals_Settings.DrawVFETribals(options);
+                    VFETribals_Settings.Draw(options);
                 }
             }
             if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
@@ -196,7 +196,7 @@ namespace Adjustable_Ability_Cooldowns
 
                 if (SectionVME)
                 {
-                    VME_Settings.DrawVME(options);
+                    VME_Settings.Draw(options);
                 }
             }
             if (ModLister.GetActiveModWithIdentifier("redmattis.bigsmall.core") != null)
@@ -213,7 +213,7 @@ namespace Adjustable_Ability_Cooldowns
 
                 if (SectionBigSmallGenesMore)
                 {
-                    BigSmallGenesMore_Settings.DrawBigSmallGenesMore(options);
+                    BigSmallGenesMore_Settings.Draw(options);
                 }
             }
 
@@ -243,74 +243,74 @@ namespace Adjustable_Ability_Cooldowns
         private static void ApplySettings()
         {
             //Add DLC and Mods here
-            Ideology_Setting.ApplySettingIdeology();
+            Ideology_Setting.ApplySettings();
             //DLC
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
-                Biotech_Setting.ApplySettingBiotech();
+                Biotech_Setting.ApplySettings();
             }
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.anomaly") != null)
             {
-                Anomaly_Settings.ApplySettingAnomaly();
+                Anomaly_Settings.ApplySettings();
             }
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.odyssey") != null)
             {
-                Odyssey_Settings.ApplySettingOdyssey();
+                Odyssey_Settings.ApplySettings();
             }
 
             //Mods
             if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
-                AlphaGene_Settings.ApplySettingAlphaGenes();
+                AlphaGene_Settings.ApplySettings();
             }
             if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
             {
-                VFETribals_Settings.ApplySettingVFETribals();
+                VFETribals_Settings.ApplySettings();
             }
             if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
             {
-                VME_Settings.ApplySettingVME();
+                VME_Settings.ApplySettings();
             }
             if (ModLister.GetActiveModWithIdentifier("redmattis.bigsmall.core") != null)
             {
-                BigSmallGenesMore_Settings.ApplySettingBigSmallGenesMore();
+                BigSmallGenesMore_Settings.ApplySettings();
             }
         }
 
         private static void ResetSettings()
         {
             //Add DLC and Mods here
-            Ideology_Setting.ResetSettingsIdeology();
+            Ideology_Setting.ResetSettings();
             //DLC
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.biotech") != null)
             {
-                Biotech_Setting.ResetSettingsBiotech();
+                Biotech_Setting.ResetSettings();
             }
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.anomaly") != null)
             {
-                Anomaly_Settings.ResetSettingsAnomaly();
+                Anomaly_Settings.ResetSettings();
             }
             if (ModLister.GetActiveModWithIdentifier("ludeon.rimworld.odyssey") != null)
             {
-                Odyssey_Settings.ResetSettingsOdyssey();
+                Odyssey_Settings.ResetSettings();
             }
 
             //Mods
             if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") != null)
             {
-                AlphaGene_Settings.ResetSettingsAlphaGenes();
+                AlphaGene_Settings.ResetSettings();
             }
             if (ModLister.GetActiveModWithIdentifier("oskarpotocki.vfe.tribals") != null)
             {
-                VFETribals_Settings.ResetSettingsVFETribals();
+                VFETribals_Settings.ResetSettings();
             }
             if (ModLister.GetActiveModWithIdentifier("vanillaexpanded.vmemese") != null)
             {
-                VME_Settings.ResetSettingsVME();
+                VME_Settings.ResetSettings();
             }
             if (ModLister.GetActiveModWithIdentifier("redmattis.bigsmall.core") != null)
             {
-                BigSmallGenesMore_Settings.ResetSettingsBigSmallGenesMore();
+                BigSmallGenesMore_Settings.ResetSettings();
             }
         }
 
